@@ -1,0 +1,455 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Time New Roman", sans-serif;
+    font-size: 20px;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(-120deg,  #db8d3991,#52a46f89,#e96f4391),
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55));
+    color: #212121;
+}
+
+/* Navigation Bar */
+.nav-bar{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;;
+    background-color: #33333336;
+    position : fixed;
+    padding:10px 35px;
+    z-index: 10;
+}
+.logo {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 42px;
+    margin-right: auto;
+    padding-left: 20px;
+}
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    
+}
+.nav-bar ul li {
+    list-style: none;
+    position:relative;
+    margin: 0 30px;
+}
+.nav-bar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 8px 10px;
+}
+.nav-bar ul li a:hover {
+    background-color: #565b576c;
+    color: #8ad3a4eb;
+    border-radius: 3px;
+}
+
+/* Street_Foods Dropdown Menu */
+.dropdown{
+    position: relative;
+}
+.nav-bar .dropdown .dropdown-content {
+    display: none !important;
+    position: absolute;
+    background-color: #565b576c;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 3px;
+    z-index: 1000;
+}
+.dropdown-content li {
+    margin: 0;
+}
+.dropdown-content li a {
+    display: block;
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+}
+.nav-bar .dropdown:hover .dropdown-content {
+    display: flex !important;
+}
+.dropdown-content li a:hover {
+   background-color: #575757;
+}
+
+
+
+/* Navigation Bar for small screens / mobile deive */
+@media (max-width: 900px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .nav-bar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-bar ul li {
+    margin: 5px 10px;
+  }
+}
+
+
+/* Header Section */
+.header {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /*transition for changing main background image*/
+    transition: background-image 2s ease-in-out; 
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.501);
+    z-index: 1;
+ }
+
+.header h1,
+.header h2 {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      text-align: center;
+
+    animation: slideIn 2s forwards;
+    }
+
+.header h1 {
+    font-family: 'Caveat', sans-serif;
+    font-size: 100px;
+    color: #ffffff;
+    padding: 30px 20px 0 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow:
+        -1px  1px 0 #3f3f3fab,
+         2px  2px 0 #292828a8;
+}
+
+.header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #e1e1e1;
+    padding: 0 20px 20px 20px;
+    font-weight: 300;
+    text-shadow:
+        -1px  1px 0 #000000ab,
+         2px  2px 0 #000000a8;
+}
+
+/* Transition for Header and Body */
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    filter: blur(50px);
+}
+
+/* Animation for header text */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto 10px auto;
+    z-index: 2;
+    
+}
+
+#searchBar {
+    width: 100%;
+    height: 65px;
+    padding: 0 50px 0 30px;
+    border: none;
+    border-radius: 0;
+    background-color: #ffffffbf;
+    font-size: 18px;
+    outline: none;
+    border-radius: 25px; 
+}
+
+#searchBar::placeholder { 
+    font-size: 24px; 
+    font-style: italic;
+}
+
+.search-icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #333;
+    pointer-events: none;
+}
+
+
+/* Countries Card Section */
+#Countries {
+    /* World map background */
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+        url("multimedia_content/images/worldmap.jpg") no-repeat center center;
+    background-size: cover; 
+    position: relative;
+}
+.countries-section {
+
+    display: flex;
+    flex-direction: column;
+    padding: 50px 5%;
+    gap: 20px;
+/*
+    gap: 40px;
+    padding: 50px 5%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch;
+    height: 80vh;
+    margin: -30px auto 50px auto;
+*/
+}
+.countries-column {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px; 
+}
+
+/* Custom scrollbar for horizontal scroll */
+.countries-column::-webkit-scrollbar {
+    height : 12px;
+}
+.countries-column::-webkit-scrollbar-thumb {
+    background: #888888d2;
+    border-radius: 5px;
+}
+.countries-column::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Guidance test for the horizontal scroll */
+.countries-guidance {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin: 20px auto 40px auto;
+    color : white;
+    
+}
+
+
+
+/* Countries Cards section */
+.countries-card-link {
+    flex : 0 0 auto;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: inherit;
+    perspective: 1000px; 
+}
+
+.countries-card {
+    width: 350px;
+    height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #ffffffad;
+
+    /* Animation to hint horizontal scroll */
+      animation: scrollHint 2s ease-in-out 4s 2;    
+}
+
+@keyframes scrollHint {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(-25px); }
+  60%  { transform: translateX(25px); }
+  100% { transform: translateX(0); }
+}
+
+
+.countries-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.countries-img-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.countries-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.countries-card:hover .countries-img {
+    transform: scale(1.1);
+}
+
+.countries-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: #fff;
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+.countries-card:hover .countries-card-content {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+}
+
+.category {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffffe2; 
+    text-shadow:
+        -1px  1px 0 #000000,
+         2px  2px 0 #292828;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.country-flag {
+    width: 28px;
+    height: auto;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.country span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-bottom: 0;
+}
+
+.countries-card:hover .card-text {
+    opacity: 1;
+    max-height: 150px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+footer {
+    background: #33333396;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Custom scrollbar for the entire page */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+body::-webkit-scrollbar-track
+{
+    background:transparent;;
+}
+body::-webkit-scrollbar-thumb {
+    background:  #888888d2;
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(165, 165, 165, 0.741);
+}

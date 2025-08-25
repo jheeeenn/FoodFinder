@@ -1,0 +1,137 @@
+/* Full page background */
+.about-page {
+  margin: 0;
+  padding: 0;
+  background-image: url('multimedia_content/images/about_me.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+}
+
+/* About section with dark overlay */
+#About {
+  position: relative; 
+  background-image: url('multimedia_content/images/streetfood.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 80px 20px;  /* top right bottom left */
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Dark overlay sits behind content */
+#About::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1; /* behind content */
+}
+
+/* Ensure text + content are always clickable */
+#About h1,
+#About .content-text,
+#About p,
+.names,
+.team-member {
+  position: relative;
+  z-index: 2; /* above overlay */
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* Headline styling */
+#About h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Paragraph styling */
+#About p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 850px;
+  margin: 0 auto 20px auto;
+}
+
+/* Content wrapper */
+#About .content-text {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Team section */
+.names {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Each team member box is clickable */
+.team-member {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.team-member:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Instagram icon */
+.insta-icon {
+  font-size: 20px;
+  color: #E1306C;
+  transition: color 0.3s ease;
+}
+
+.insta-icon:hover {
+  color: #C13584;
+}
+
+/* Instagram text */
+.icon-text {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.icon-text:hover {
+  text-decoration: underline;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  .names {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .team-member {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .icon-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}

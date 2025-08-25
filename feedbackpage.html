@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback Form</title>
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+  <!-- Nav Bar -->
+   <nav class = "nav-bar">
+    <div class="logo">FoodFinder</div>
+
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="login.html">Account</a></li>
+    </ul>
+   </nav>
+
+  <!-- Feedback Form -->
+  <div class="container">
+    <!-- Header section with different color -->
+    <div class="header-section">
+      <h1>We Want Your Opinion!</h1>
+      <p class="subtitle">We would love to hear your thoughts, suggestions, or concerns so we can improve!</p>
+    </div>
+
+    <form id="feedbackForm">
+      <!-- Rating -->
+      <div class="form-section">
+        <h2>How satisfied are you with our service?<span class="required">*</span></h2>
+        <div class="rating-container">
+          <div class="rating-option" data-value="1"><div class="rating-emoji">😠</div><div class="rating-text">Very Dissatisfied</div></div>
+          <div class="rating-option" data-value="2"><div class="rating-emoji">😕</div><div class="rating-text">Dissatisfied</div></div>
+          <div class="rating-option" data-value="3"><div class="rating-emoji">😐</div><div class="rating-text">Neutral</div></div>
+          <div class="rating-option" data-value="4"><div class="rating-emoji">🙂</div><div class="rating-text">Satisfied</div></div>
+          <div class="rating-option" data-value="5"><div class="rating-emoji">😍</div><div class="rating-text">Very Satisfied</div></div>
+        </div>
+        <div id="ratingError" class="error">Please select a satisfaction rating</div>
+      </div>
+
+      <!-- Feedback Text -->
+      <div class="form-section">
+        <h2>What do you like/not like about our service?</h2>
+        <textarea id="feedbackText" placeholder="Please share your thoughts..."></textarea>
+      </div>
+
+      <!-- Feedback Type -->
+      <div class="form-section">
+        <h2>Feedback Type<span class="required">*</span></h2>
+        <div class="feedback-type">
+          <div class="type-option" data-value="comment">💬Comments</div>
+          <div class="type-option" data-value="suggestion">💡Suggestions</div>
+          <div class="type-option" data-value="question">❓Questions</div>
+        </div>
+        <div id="typeError" class="error">Please select a feedback type</div>
+      </div>
+
+      <!-- Submit -->
+      <div class="btn-container">
+        <button type="submit" class="btn">Submit Feedback</button>
+      </div>
+    </form>
+
+    <!-- Submitted Feedbacks Section -->
+    <div class="submitted-feedbacks-container">
+      <div class="submitted-feedbacks-header">
+        <h2>Submitted Feedbacks</h2>
+      </div>
+      <div id="storageInfo"></div>
+      <ul id="feedbackList"></ul>
+      
+      <!-- Home Button Container -->
+      <div class="home-btn-container">
+        <button class="home-btn" onclick="window.location.href='main.html'">← Back to Homepage</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thank You Modal -->
+  <div id="thankYouModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Thank You!</h2>
+      <p>Your feedback has been submitted successfully.</p>
+    </div>
+  </div>
+
+  <!-- Login Required Modal -->
+  <div id="loginRequiredModal" class="modal">
+    <div class="modal-content">
+      <span id="closeLoginModal" class="close">&times;</span>
+      <h2>Login Required</h2>
+      <p>You need to be logged in to submit feedback.</p>
+      <div class="login-modal-buttons">
+        <button id="goToLoginBtn" class="btn">Go to Login Page</button>
+        <button id="cancelLoginBtn" class="btn" style="background: #6c757d;">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="feedback.js"></script>
+</body>
+</html>

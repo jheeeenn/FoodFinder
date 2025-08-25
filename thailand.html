@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Thailand Street Food</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="countries.css">
+</head>
+
+<style>
+  header {
+    background-image: url('multimedia_content/images/thailand.png.jpg');
+  }
+</style>
+<body>
+<!-- Nav Bar -->
+   <nav class = "nav-bar">
+    <div class="logo">FoodFinder</div>
+
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class= "dropdown">
+        <a href= "main.html#Countries"> Countries ▾ </a>
+        <ul class="dropdown-content">
+          <li><a href="thailand.html">Thailand</a></li>
+          <li><a href="germany.html">Germany</a></li>
+          <li><a href="us.html">United States</a></li>
+        </ul>
+      </li>  
+      <li><a href="feedbackpage.html">Feedback</a></li>
+      <li><a href="login.html">Account</a></li>
+    </ul>
+   </nav>
+   
+  <!-- Header -->
+  <header class="header">
+    <h1>Explore Thailand Street Food</h1>
+    <h2>Discover the best street food around the world</h2>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Find the food you like..." onkeyup="searchFood()">
+    <i class="fas fa-search search-icon"></i>
+  </div>
+
+  <!-- Food Section -->
+  <div class="food-section">
+    <!-- Pad Thai Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/padthai.png" alt="Pad Thai" title="Pad Thai">
+          <div class="food-card-content">
+            <div class="category">Noodle</div>
+            <h5>Pad Thai</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/chicken.png" alt="chicken" title="chicken" width="20">
+              <img src="multimedia_content/images/shrimp.png" alt="shrimp" title="shrimp" width="20">
+              <img src="multimedia_content/images/bean.png" alt="bean" title="bean" width="20">
+              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+              <img src="multimedia_content/images/noodle.png" alt="noodle" title="noodle" width="20">
+              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
+              <img src="multimedia_content/images/tamarind.png" alt="tamarind" title="tamarind" width="20">
+              <img src="multimedia_content/images/tofu.png" alt="tofu" title="tofu" width="20">
+              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
+              <img src="multimedia_content/images/egg.png" alt="egg" title="egg" width="20">
+              <img src="multimedia_content/images/lime.png" alt="lime" title="lime" width="20">
+              <img src="multimedia_content/images/chilli.png" alt="chilli" title="chilli" width="20">
+              <img src="multimedia_content/images/oil.png" alt="oil" title="oil" width="20">
+              <img src="multimedia_content/images/brownsugar.png" alt="brown sugar" title="brown sugar" width="20">
+              <img src="multimedia_content/images/fishsauce.png" alt="fish sauce" title="fish sauce" width="20">
+            </div>
+            <p class="card-text">Pad Thai is Thailand's national dish, a flavorful stir-fry (pad in Thai) dish consisting of rice noodles, tofu, dried shrimp, bean sprouts, and eggs. If it's made with meat, chicken and pork are some of the most popular choices.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Pad Thai</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('pad-thai')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tom Yum Goong Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/tomyum.png" alt="Tom Yum Goong" title="Tom Yum Goong">
+          <div class="food-card-content">
+            <div class="category">Soup</div>
+            <h5>Tom Yum Goong</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/shrimp.png" alt="shrimp" title="shrimp" width="20">
+              <img src="multimedia_content/images/lemongrass.png" alt="lemongrass" title="lemongrass" width="20">
+              <img src="multimedia_content/images/kaffirlime.png" alt="kaffir lime" title="kaffir lime" width="20">
+              <img src="multimedia_content/images/galangal.png" alt="galangal" title="galangal" width="20">
+              <img src="multimedia_content/images/chilli.png" alt="chilli" title="chilli" width="20">
+              <img src="multimedia_content/images/mushroom.png" alt="mushroom" title="mushroom" width="20">
+              <img src="multimedia_content/images/lime.png" alt="lime" title="lime" width="20">
+              <img src="multimedia_content/images/fishsauce.png" alt="fish sauce" title="fish sauce" width="20">
+            </div>
+            <p class="card-text">Tom Yum Goong is a hot and sour Thai soup, typically cooked with shrimp. It's flavored with fragrant herbs like lemongrass, kaffir lime leaves, galangal, and chili peppers.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Tom Yum Goong</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('tom-yum-goong')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Green Curry Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/greencurry.png" alt="Green Curry" title="Green Curry">
+          <div class="food-card-content">
+            <div class="category">Curry</div>
+            <h5>Green Curry</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/coconutmilk.png" alt="coconut milk" title="coconut milk" width="20">
+              <img src="multimedia_content/images/greenchilli.png" alt="green chilli" title="green chilli" width="20">
+              <img src="multimedia_content/images/basil.png" alt="basil" title="basil" width="20">
+              <img src="multimedia_content/images/eggplant.png" alt="eggplant" title="eggplant" width="20">
+              <img src="multimedia_content/images/chicken.png" alt="chicken" title="chicken" width="20">
+              <img src="multimedia_content/images/fishsauce.png" alt="fish sauce" title="fish sauce" width="20">
+              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+              <img src="multimedia_content/images/shallot.png" alt="shallot" title="shallot" width="20">
+            </div>
+            <p class="card-text">Green Curry is a central Thai dish known for its spiciness and vibrant green color from green chilies. It's made with coconut milk, meat, Thai eggplant, and fresh basil.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Green Curry</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('green-curry')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Som Tam Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/somtam.png" alt="Som Tam" title="Som Tam">
+          <div class="food-card-content">
+            <div class="category">Salad</div>
+            <h5>Som Tam</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/papaya.png" alt="papaya" title="papaya" width="20">
+              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+              <img src="multimedia_content/images/chilli.png" alt="chilli" title="chilli" width="20">
+              <img src="multimedia_content/images/lime.png" alt="lime" title="lime" width="20">
+              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato" width="20">
+              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
+              <img src="multimedia_content/images/fishsauce.png" alt="fish sauce" title="fish sauce" width="20">
+              <img src="multimedia_content/images/palmSugar.png" alt="palm sugar" title="palm sugar" width="20">
+            </div>
+            <p class="card-text">Som Tam is a spicy green papaya salad that combines all four tastes - sour, chili-hot, sweet, and salty. It's a popular street food dish throughout Thailand.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Som Tam</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('som-tam')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mango Sticky Rice Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/mangosticky.png" alt="Mango Sticky Rice" title="Mango Sticky Rice">
+          <div class="food-card-content">
+            <div class="category">Dessert</div>
+            <h5>Mango Sticky Rice</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/mango.png" alt="mango" title="mango" width="20">
+              <img src="multimedia_content/images/rice.png" alt="rice" title="rice" width="20">
+              <img src="multimedia_content/images/coconutmilk.png" alt="coconut milk" title="coconut milk" width="20">
+              <img src="multimedia_content/images/sugar.png" alt="sugar" title="sugar" width="20">
+              <img src="multimedia_content/images/salt.png" alt="salt" title="salt" width="20">
+            </div>
+            <p class="card-text">Mango Sticky Rice is a traditional Thai dessert made with glutinous rice, fresh mango, and coconut milk. It's sweet, creamy, and a perfect end to any Thai meal.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Mango Sticky Rice</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('mango-sticky-rice')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satay Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/satay.png" alt="Satay" title="Satay">
+          <div class="food-card-content">
+            <div class="category">Grilled</div>
+            <h5>Satay</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/chicken.png" alt="chicken" title="chicken" width="20">
+              <img src="multimedia_content/images/turmeric.png" alt="turmeric" title="turmeric" width="20">
+              <img src="multimedia_content/images/lemongrass.png" alt="lemongrass" title="lemongrass" width="20">
+              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
+              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+              <img src="multimedia_content/images/cumin.png" alt="cumin" title="cumin" width="20">
+              <img src="multimedia_content/images/coriander.png" alt="coriander" title="coriander" width="20">
+            </div>
+            <p class="card-text">Satay is a popular Thai street food consisting of marinated, skewered, and grilled meat served with a spicy peanut sauce. It's often made with chicken, beef, or pork.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Satay</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('satay')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Massaman Curry Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/massaman.png" alt="Massaman Curry" title="Massaman Curry">
+          <div class="food-card-content">
+            <div class="category">Curry</div>
+            <h5>Massaman Curry</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
+              <span>Thailand</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/beef.png" alt="beef" title="beef" width="20">
+              <img src="multimedia_content/images/potato.png" alt="potato" title="potato" width="20">
+              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
+              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
+              <img src="multimedia_content/images/cardamom.png" alt="cardamom" title="cardamom" width="20">
+              <img src="multimedia_content/images/cinnamon.png" alt="cinnamon" title="cinnamon" width="20">
+              <img src="multimedia_content/images/coconutmilk.png" alt="coconut milk" title="coconut milk" width="20">
+              <img src="multimedia_content/images/tamarind.png" alt="tamarind" title="tamarind" width="20">
+            </div>
+            <p class="card-text">Massaman Curry is a rich, flavorful Thai curry with Muslim origins. It's milder than other Thai curries and features spices like cardamom, cinnamon, and star anise.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Massaman Curry</h3>
+          <p>Click explore to learn more about this delicious Thai dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('massaman-curry')">Explore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Food Detail Modal -->
+  <div id="foodModal" class="food-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      
+      <div class="centered-modal-content">
+        <div class="modal-header">
+          <h2 id="modalFoodName">Pad Thai</h2>
+          <div class="food-country">
+            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand">
+            <span id="modalFoodCountry">Thailand</span>
+          </div>
+          <div class="category">Noodle</div>
+        </div>
+        
+        <div class="modal-image-container">
+          <img id="modalFoodImage" class="modal-image" src="multimedia_content/images/padthai.png" alt="Pad Thai">
+        </div>
+        
+        <div class="modal-details">
+          <div class="food-description">
+            <div class="description-header">
+              <span class="label">History</span>
+              <span class="divider">|</span>
+              <span class="label">Introduction</span>
+            </div>
+            <p class="card-text" id="modalDescription">
+              Pad Thai originated in the mid-20th century during a period of national reform in Thailand. 
+              It was promoted as a national dish to encourage rice noodle consumption and quickly became 
+              popular as affordable street food. Pad Thai is a classic Thai stir-fried noodle dish with eggs, tofu, tamarind sauce, peanuts, 
+              and shrimp or chicken. Often served with lime wedges and fresh bean sprouts, 
+              this street food favorite is flavorful, tangy, and slightly sweet.
+            </p>
+          </div>
+          
+          <h4>Ingredients:</h4>
+          <div class="food-icons" id="modalIngredients">
+            <!-- Ingredients will be populated by JavaScript -->
+          </div>
+
+          <h3>Recipe</h3>
+          <div class="recipe-steps" id="modalRecipe">
+            <!-- Recipe steps will be populated by JavaScript -->
+          </div>
+          
+          <!-- Review Section -->
+          <section class="review-section">
+            <h2>Customer Reviews</h2>
+            
+            <div class="rating-summary">
+              <h3>Average Rating: <span id="average-rating">0.0</span> ⭐</h3>
+            </div>
+
+            <div class="rating-distribution">
+              <h3>Rating Distribution</h3>
+              <canvas id="ratingChart"></canvas>
+            </div>
+
+            <br>
+
+            <form id="reviewForm">
+              <label for="rating">Your Rating:</label>
+              <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+              </div>
+
+              <textarea id="comment" placeholder="Write your review..." required></textarea>
+              
+              <label for="photoUpload" class="file-label">📂 Choose a photo</label>
+              <input type="file" id="photoUpload" accept="image/*">
+
+              <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+
+            <div id="reviewsList"></div>
+          </section>
+          
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="javascript:void(0)" onclick="closeModal()" class="back-btn">← Back to Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-3">🎥 Watch Thailand Street Food</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/Uz1PjL0n5hE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- API Section -->
+  <div class="container text-center my-5">
+    <h2>🍜 Random Food Image from API</h2>
+    <button id="getFoodBtn" class="btn btn-primary">Get Random Food</button>
+    <div class="mt-3">
+      <img id="foodImage" src="" class="img-fluid rounded shadow" alt="Food from API" style="max-height: 300px;">
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <div class="container text-center my-5">
+    <h2>📢 Share This Page</h2>
+    <div class="fb-share-button" 
+         data-href="https://yourwebsite.com/thailand" 
+         data-layout="button" 
+         data-size="large"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; FoodFinder | Global Street Food Guide
+  </footer>
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+  <script src="countries.js"></script>
+</body>
+</html>

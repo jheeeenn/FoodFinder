@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap">
+
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+    <!-- Nav Bar -->
+   <nav class = "nav-bar">
+    <div class="logo">FoodFinder</div>
+
+    <ul>
+      <li><a href="main.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+   </nav>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>Login</h1>
+            <p>Welcome back! Please login to your account.</p>
+        </div>
+        
+        <div class="form-container">
+            <div id="message" class="message"></div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Type your username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Type your password" required>
+                    <i class="fas fa-lock password-toggle" onclick="togglePassword()"></i>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#" onclick="forgotPassword()">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn">LOGIN</button>
+            </form>
+            
+            <div class="divider">
+                <span>Or Sign Up Using</span>
+            </div>
+            
+            <div class="social-login">
+                <div class="social-btn facebook"><i class="fab fa-facebook-f"></i></div>
+                <div class="social-btn google"><i class="fab fa-google"></i></div>
+                <div class="social-btn twitter"><i class="fab fa-twitter"></i></div>
+            </div>
+            
+            <div class="register-section">
+                <p>Don't have an account?</p>
+                <button type="button" class="register-btn" onclick="showRegisterForm()">SIGN UP</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== Password toggle =====
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.querySelector('.password-toggle');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-lock');
+                icon.classList.add('fa-unlock');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-unlock');
+                icon.classList.add('fa-lock');
+            }
+        }
+
+        // ===== LocalStorage helpers =====
+        function getUsers() {
+            return JSON.parse(localStorage.getItem('users')) || [];
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+            setTimeout(()=>{ messageEl.style.display='none'; }, 4000);
+        }
+
+        // ===== Show register form =====
+        function showRegisterForm() {
+            const registerForm = `
+                <div class="input-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" placeholder="Choose a username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" placeholder="Create a password" required>
+                    <i class="fas fa-lock password-toggle" onclick="toggleRegisterPassword()"></i>
+                </div>
+                <div class="input-group">
+                    <label for="reg-confirm-password">Confirm Password</label>
+                    <input type="password" id="reg-confirm-password" placeholder="Confirm your password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="button" class="btn" onclick="registerUser()">REGISTER</button>
+                <button type="button" class="btn" style="background: #6c757d; margin-top: 10px;" onclick="showLoginForm()">BACK TO LOGIN</button>
+            `;
+            document.querySelector('.header h1').textContent = 'Register';
+            document.querySelector('.header p').textContent = 'Create a new account to get started.';
+            document.getElementById('loginForm').innerHTML = registerForm;
+            document.querySelector('.register-section').style.display='none';
+            document.querySelector('.social-login').style.display='none';
+            document.querySelectorAll('.divider').forEach(el=>el.style.display='none');
+        }
+
+        function showLoginForm() { window.location.reload(); }
+
+        function toggleRegisterPassword() {
+            const passwordInput = document.getElementById('reg-password');
+            const icon = document.querySelectorAll('.password-toggle')[1];
+            if (passwordInput.type === 'password') {
+                passwordInput.type='text'; icon.classList.remove('fa-lock'); icon.classList.add('fa-unlock');
+            } else {
+                passwordInput.type='password'; icon.classList.remove('fa-unlock'); icon.classList.add('fa-lock');
+            }
+        }
+
+        // ===== Register user =====
+        function registerUser() {
+            const username = document.getElementById('reg-username').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value.trim();
+            const confirmPassword = document.getElementById('reg-confirm-password').value.trim();
+
+            if (!username || !email || !password || !confirmPassword) 
+            { 
+                showMessage('Please fill in all fields','error'); 
+                return; 
+            }
+
+            if (password!==confirmPassword) 
+            { 
+                showMessage('Passwords do not match','error'); 
+                return; 
+            }
+
+            if (password.length<6) 
+            { 
+                showMessage('Password must be at least 6 characters','error'); 
+                return; 
+            }
+
+            let users = getUsers();
+            if(users.some(u=>u.username===username))
+            { 
+                showMessage('Username already registered. Please login.','error'); 
+                return; 
+            }
+
+            users.push({username,email,password});
+            saveUsers(users);
+            showMessage('Registration successful! Please login.','success');
+            setTimeout(showLoginForm,2000);
+        }
+
+        // ===== Forgot password =====
+        function forgotPassword() {
+            const username = prompt('Enter your username:');
+            if (!username) return;
+
+            let users = getUsers();
+            const user = users.find(u=>u.username===username);
+
+            if (!user) { 
+                showMessage('Username not found!','error'); 
+                return; 
+            }
+
+            const newPass = prompt('Enter new password (min 6 characters):');
+
+            if (!newPass || newPass.length<6) 
+            { 
+                showMessage('Password must be at least 6 characters','error'); 
+                return; 
+            }
+
+            user.password = newPass;
+            saveUsers(users);
+            showMessage('Password reset successful! Please login.','success');
+        }
+
+        // ===== Login =====
+        document.getElementById('loginForm').addEventListener('submit',function(e){
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if(!username || !password)
+            { 
+                showMessage('Please enter username and password','error'); 
+                return;
+             }
+
+            const users = getUsers();
+            const user = users.find(u=>u.username===username && u.password===password);
+
+            if(user){
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                showMessage('Login successful! Welcome '+username,'success');
+                setTimeout(()=>{
+                    showMessage('Redirecting to homepage...','success');
+                        }, 2500);
+                setTimeout(()=>{
+                     window.location.href='main.html';
+                     }, 5000);
+            }
+            else showMessage('Invalid username or password','error');
+        });
+
+        // ===== Fake Social Logins =====
+        document.querySelector('.social-btn.facebook').onclick = ()=>{
+            let user = {username:"FacebookUser", email:"fb@example.com", password:"social"};
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            showMessage("Logged in with Facebook",'success');
+        };
+        document.querySelector('.social-btn.google').onclick = ()=>{
+            let user = {username:"GoogleUser", email:"google@example.com", password:"social"};
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            showMessage("Logged in with Google",'success');
+        };
+        document.querySelector('.social-btn.twitter').onclick = ()=>{
+            let user = {username:"TwitterUser", email:"twitter@example.com", password:"social"};
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            showMessage("Logged in with Twitter",'success');
+        };
+
+        // Auto welcome if already logged in
+        window.onload=function(){
+            const loggedIn = localStorage.getItem('loggedInUser');
+            if(loggedIn){
+                const user = JSON.parse(loggedIn);
+                document.getElementById('username').value=user.username;
+                showMessage('Welcome back '+user.username+'!','success');
+            }
+        };
+    </script>
+</body>
+</html>
