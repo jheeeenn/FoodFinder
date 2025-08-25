@@ -284,10 +284,58 @@ body {
 
 /* For mobile device / small device */
 @media (max-width: 480px) {
-    .container { border-radius: 10px; }
-    .form-container { padding: 20px; }
-    .header { padding: 20px 15px; }
-    .header h1 { font-size: 24px; }
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    margin: 90px 10px 20px 10px;
+    border-radius: 12px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+  .header p {
+    font-size: 14px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .input-group label {
+    font-size: 14px;
+  }
+  .input-group input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .forgot-password a {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .social-login {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .social-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .register-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
 @media (max-width: 900px) {
   .nav-bar {
