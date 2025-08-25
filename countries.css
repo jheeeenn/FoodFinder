@@ -2,14 +2,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Time New Roman", sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 20px;
+    scroll-behavior: smooth;
 }
   
   body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #F8F8FF;
-      color: #333;
+    background: linear-gradient(-120deg,  #db8d3991,#52a46f89,#e96f4391),
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55));
+    color: #333;
     }
 /* Navigation Bar */
 .nav-bar{
@@ -88,498 +89,523 @@
    background-color: #575757;
 }
 
-    /* Header Section */
+
+ /* Header Section */
     .header {
-      position: relative;
-      width: 100%;
-      height: 505px;
-      
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+    position: relative;
+    width: 100%;
+    height: 505px;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
     .header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
     }
 
     .header h1, .header h2 {
-      position: relative;
-      z-index: 2;
-      margin: 0;
-      text-align: center;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    text-align: center;
     }
 
     .header h1 {
-      font-family: 'Caveat', 'Roboto', sans-serif;
-      font-size: 80px;
-      color: #ffffff;
-      padding: 30px 20px 0 20px;
-      font-weight: 400;
-      letter-spacing: 0.5px;
+    font-family: 'Caveat', 'Roboto', sans-serif;
+    font-size: 80px;
+    color: #ffffff;
+    padding: 30px 20px 0 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     }
 
     .header h2 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 24px;
-      color: #ffffff;
-      padding: 0 20px 20px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    padding: 0 20px 20px 20px;
     }
 
-    /* Search Bar */
-    .search-container {
-      position: relative;
-      width: 80%;
-      max-width: 700px;
-      margin: -30px auto 40px auto;
-      z-index: 2;
-    }
+/* Search Bar */
+.search-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto 10px auto;
+    z-index: 2;
+    
+}
 
-    #searchBar {
-      width: 100%;
-      height: 65px;
-      padding: 0 50px 0 20px;
-      border: none;
-      border-radius: 0;
-      background-color: #ffffff;
-      font-size: 18px;
-      outline: none;
-    }
+#searchBar {
+    width: 100%;
+    height: 65px;
+    padding: 0 50px 0 30px;
+    border: none;
+    border-radius: 0;
+    background-color: #ffffffbf;
+    font-size: 18px;
+    outline: none;
+    border-radius: 25px; 
+}
 
-    #searchBar::placeholder { font-size: 14px; }
+#searchBar::placeholder { 
+    font-size: 24px; 
+    font-style: italic;
+}
 
-    .search-icon {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 22px;
-      color: #333;
-      pointer-events: none;
-    }
+.search-icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #333;
+    pointer-events: none;
+}
 
-    /* Food Cards */
+
+/* Food Cards */
     .food-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
     }
 
     .food-card-container {
-      perspective: 1000px;
-      width: 360px;
-      height: 620px;
-      margin-bottom: 30px;
+    perspective: 1000px;
+    width: 360px;
+    height: 620px;
+    margin-bottom: 30px;
     }
 
     .food-card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
     }
 
     .food-card.flipped {
-      transform: rotateY(180deg);
+    transform: rotateY(180deg);
     }
 
     .food-card-front, .food-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
     }
 
     .food-card-back {
-      background-color: #ffffff;
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      text-align: center;
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
     }
 
     .food-card-front {
-      background-color: #ffffff;
-      display: flex;
-      flex-direction: column;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
     }
 
     .food-card img.food-img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     }
 
     .food-card-content {
-      padding: 15px 20px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
     }
 
     .food-country {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     .category {
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: #777;
-      margin-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
     }
 
     .food-card-content h5 {
-      font-size: 18px;
-      margin: 5px 0;
-      text-align: center;
+    font-size: 18px;
+    margin: 5px 0;
+    text-align: center;
     }
 
     .food-flag {
-      width: 24px;
-      height: 16px;
-      margin: 0;
-      object-fit: cover;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      vertical-align: middle;
+    width: 24px;
+    height: 16px;
+    margin: 0;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    vertical-align: middle;
     }
 
     .food-country span {
-      margin-left: 4px;
+    margin-left: 4px;
     }
 
     .food-icons {
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
     }
 
     .food-icons img {
-      width: 20px;
-      height: 20px;
-      margin: 4px;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
     }
 
     .card-text {
-      font-size: 14px;
-      color: #555;
-      flex: 1;
-      text-align: center;
+    font-size: 14px;
+    color: #555;
+    flex: 1;
+    text-align: center;
     }
 
     .explore-btn {
-      background-color: #ff6b35;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: all 0.3s;
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
     }
 
     .explore-btn:hover {
-      background-color: #e85a2a;
-      transform: scale(1.05);
+    background-color: #e85a2a;
+    transform: scale(1.1);
     }
 
     /* Modal for detailed view */
     .food-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      overflow-y: auto;
-      padding: 20px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
     }
 
     .modal-content {
-      background-color: #fff;
-      margin: 2% auto;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 800px;
-      position: relative;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    background-color: #fff;
+    margin: 2% auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     }
 
     .close-modal {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
     }
 
     .close-modal:hover {
-      color: #333;
+    color: #333;
     }
 
     .modal-header {
-      text-align: center;
-      margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
     }
 
     .modal-image-container {
-      text-align: center;
-      margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 25px;
     }
 
     .modal-image {
-      max-width: 100%;
-      border-radius: 10px;
-      max-height: 400px;
-      object-fit: cover;
+    max-width: 100%;
+    border-radius: 10px;
+    max-height: 400px;
+    object-fit: cover;
     }
 
     .modal-details {
-      width: 100%;
+    width: 100%;
     }
 
     .ingredients-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-      margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
     }
 
     .ingredient-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     }
 
     .ingredient-item img {
-      width: 24px;
-      height: 24px;
+    width: 24px;
+    height: 24px;
     }
 
     /* Detail View Styles */
     .description-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: center;
     }
 
     .description-header .label {
-      font-weight: bold;
-      color: #ff6b35;
+    font-weight: bold;
+    color: #ff6b35;
     }
 
     .description-header .divider {
-      margin: 0 10px;
-      color: #ccc;
+    margin: 0 10px;
+    color: #ccc;
     }
 
     .recipe-steps {
-      margin-top: 15px;
+    margin-top: 15px;
     }
 
     .step-number {
-      display: inline-block;
-      width: 25px;
-      height: 25px;
-      background-color: #ff6b35;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      margin-right: 10px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #ff6b35;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
     }
 
     .review-section {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
     }
 
     .star-rating {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-      margin: 10px 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: 10px 0;
     }
 
     .star-rating input {
-      display: none;
+    display: none;
     }
 
     .star-rating label {
-      cursor: pointer;
-      font-size: 24px;
-      color: #ccc;
-      transition: color 0.2s;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc;
+    transition: color 0.2s;
     }
 
     .star-rating input:checked ~ label,
     .star-rating label:hover,
     .star-rating label:hover ~ label {
-      color: #ffc107;
+    color: #ffc107;
     }
 
     .file-label {
-      display: inline-block;
-      padding: 8px 15px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px 0;
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
     }
 
     .submit-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-      margin: 15px auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 15px auto;
     }
 
     .back-btn {
-      display: inline-block;
-      padding: 8px 15px;
-      background-color: #6c757d;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
     }
 
     .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     }
 
     footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
     }
 
     /* Centered layout for modal */
     .centered-modal-content {
-      text-align: center;
+    text-align: center;
     }
     
     .centered-modal-content .modal-image-container {
-      margin: 0 auto 25px;
+    margin: 0 auto 25px;
     }
     
     .centered-modal-content .modal-details {
-      text-align: left;
-      max-width: 700px;
-      margin: 0 auto;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
     }
 
     /* Detail view specific styles */
     .food-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
     }
     
     .icon-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
     }
     
     .icon-item img {
-      width: 30px;
-      height: 30px;
-      margin-bottom: 5px;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
     }
     
     .icon-item span {
-      font-size: 12px;
-      text-align: center;
+    font-size: 12px;
+    text-align: center;
     }
     
     .recipe-steps p {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
     }
 
     /* Review styles */
     .rating-distribution {
-      margin: 20px 0;
+    margin: 20px 0;
     }
 
     #reviewForm textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      min-height: 100px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    min-height: 100px;
     }
 
     #photoUpload {
-      display: none;
+    display: none;
     }
 
     .review {
-      border-bottom: 1px solid #eee;
-      padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
     }
 
     .review img {
-      max-width: 100px;
-      margin-top: 10px;
-      border-radius: 5px;
+    max-width: 100px;
+    margin-top: 10px;
+    border-radius: 5px;
     }
 
     .translateBtn {
-      background-color: #4285f4;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 5px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
     }
+
+/*for mobible device / small device*/
+@media (max-width: 900px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .nav-bar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-bar ul li {
+    margin: 5px 10px;
+  }
+}

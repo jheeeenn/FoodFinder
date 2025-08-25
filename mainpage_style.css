@@ -453,3 +453,11 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background-color: rgba(165, 165, 165, 0.741);
 }
+
+/* for small device and mobile device*/
+@media (max-width: 480px) {
+  .header h1 { font-size: 50px; }
+  .header h2 { font-size: 18px; }
+  .countries-card { width: 280px; height: 350px; }
+  #searchBar::placeholder { font-size: 16px; }
+}

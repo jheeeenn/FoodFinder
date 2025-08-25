@@ -404,7 +404,7 @@ textarea:focus {
   border-top: 1px solid #eee;
 }
 
-/* Responsive */
+/* For mobile screen / samll screens*/
 @media (max-width:600px) {
   .rating-container, .feedback-type { flex-direction: column; gap:10px; }
   .feedback-header { flex-direction: column; align-items: flex-start; }
@@ -422,5 +422,19 @@ textarea:focus {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .nav-bar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-bar ul li {
+    margin: 5px 10px;
   }
 }

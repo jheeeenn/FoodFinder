@@ -282,9 +282,23 @@ body {
     cursor: pointer;
 }
 
+/* For mobile device / small device */
 @media (max-width: 480px) {
     .container { border-radius: 10px; }
     .form-container { padding: 20px; }
     .header { padding: 20px 15px; }
     .header h1 { font-size: 24px; }
+}
+@media (max-width: 900px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .nav-bar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-bar ul li {
+    margin: 5px 10px;
+  }
 }
