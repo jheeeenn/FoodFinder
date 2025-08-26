@@ -88,7 +88,7 @@ const statusDiv = document.getElementById("cookieStatus");
     statusDiv.textContent = "You have accepted cookies on this site.";
   } 
 
-
+/*
 const countryPages = {
   "United States": "us.html",
   "Germany": "germany.html",
@@ -170,8 +170,96 @@ document.addEventListener("DOMContentLoaded", () => {
   const refreshBtn = document.getElementById("refreshFoods");
   if (refreshBtn) {
     refreshBtn.addEventListener("click", () => {
-      setTimeout(observeCards, 100); 
+      setTimeout(observeCards, 500); 
       // small delay so new DOM elements exist before observing
+    });
+  }
+});
+*/
+
+const countryPages = {
+  "United States": "us.html",
+  "Germany": "germany.html",
+  "Thailand": "thailand.html",
+  "Japan": "japan.html",
+  "China": "china.html",
+  "Turkey": "turkey.html",
+  "Malaysia": "malaysia.html",
+  "Kiribati": "kiribati.html"
+};
+
+// IntersectionObserver for scroll-triggered animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+// Observe static highlight cards
+function observeHighlightCards() {
+  document.querySelectorAll(".highlight-card").forEach(el => {
+    if (!el.classList.contains("visible")) {
+      observer.observe(el);
+    }
+  });
+}
+
+// Display Featured Foods
+function displayFeaturedFoods() {
+  const foodList = document.getElementById("food-list");
+  foodList.innerHTML = "";
+
+  const foodKeys = Object.keys(foodData);
+  const shuffled = foodKeys.sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 3);
+
+  selected.forEach(foodKey => {
+    const food = foodData[foodKey];
+    const countryPage = countryPages[food.country] || "index.html";
+
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-4";
+
+    col.innerHTML = `
+      <a href="${countryPage}" class="text-decoration-none text-dark">
+        <div class="card food-card shadow-sm h-100">
+          <img src="${food.image}" class="card-img-top" alt="${food.name}">
+          <div class="food-card-body">
+            <h5 class="card-title">${food.name}</h5>
+            <p>${food.description.substring(0, 80)}...</p>
+            <p class="text-muted"><strong>${food.country}</strong></p>
+          </div>
+        </div>
+      </a>
+    `;
+
+    foodList.appendChild(col);
+  });
+
+  // Observe newly added food cards
+  document.querySelectorAll(".food-card").forEach(el => {
+    if (!el.classList.contains("visible")) {
+      observer.observe(el);
+    }
+  });
+}
+
+// Initialize everything
+document.addEventListener("DOMContentLoaded", () => {
+  // Observe static highlight cards
+  observeHighlightCards();
+
+  // Display food cards on load
+  displayFeaturedFoods();
+
+  // Refresh button handler
+  const refreshBtn = document.getElementById("refreshFoods");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      displayFeaturedFoods();
     });
   }
 });
