@@ -24,7 +24,7 @@
 <body>
   <!-- Nav Bar -->
    <nav class = "nav-bar">
-    <div class="logo">FoodFinder</div>
+    <div class="logo"><a href="index.html">FoodFinder</a></div>
 
     <ul>
       <li><a href="#Home">Home</a></li>
@@ -34,7 +34,7 @@
         <ul class="dropdown-content">
           <li><a href="thailand.html">Thailand</a></li>
           <li><a href="germany.html">Germany</a></li>
-          <li><a href="us.html">United States</a></li>
+          <li><a href="us.html">US</a></li>
           <li><a href="japan.html">Japan</a></li>
           <li><a href="china.html">China</a></li>
           <li><a href="turkey.html">Turkey</a></li>
@@ -236,33 +236,99 @@
   
 </section>
 
-
-
-  <!-- Video Section -->
-  <div class="container my-5">
-    <h2 class="text-center mb-3">🎥 Watch Global Street Food</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/Uz1PjL0n5hE" frameborder="0" allowfullscreen></iframe>
+<!-- Additional Sections-->
+  <section id = "highlights" class = "py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Why FoodFinder?</h2>
+      <div class="row">
+  <div class="col-md-3 highlight-card">
+    <div class="card p-3 shadow-sm">
+      <h4>🌍Explore</h4>
+      <p>Discover street foods from diverse cultures and regions worldwide.</p>
     </div>
   </div>
-
-
-  <!-- Social Media -->
-  <div class="container text-center my-5">
-    <h2>📢 Share FoodFinder</h2>
-    <div class="fb-share-button" 
-         data-href="https://jheeeenn.github.io/FoodFinder/index.html" 
-         data-layout="button" 
-         data-size="large"></div>
+  <div class="col-md-3 highlight-card">
+    <div class="card p-3 shadow-sm">
+      <h4>🍽️Savor</h4>
+      <p>Experience authentic flavors and culinary traditions.</p>
+    </div>
   </div>
- 
+  <div class="col-md-3 highlight-card">
+    <div class="card p-3 shadow-sm">
+      <h4>📸Share</h4>
+      <p>Capture and share your street food adventures with friends.</p>
+    </div>
+  </div>
+  <div class="col-md-3 highlight-card">
+    <div class="card p-3 shadow-sm">
+      <h4>💬Connect</h4>
+      <p>Meet people through the love of foods and cultures</p>
+    </div>
+  </div>
+</div>
+    </div>
+
+  </section>
+
+
+<!-- Featured Foods Section -->
+<section id="featured-foods" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Featured Foods in FoodFinder</h2>
+    <div id="food-list" class="row">
+      <!-- Cards will be injected here -->
+    </div>
+    <!-- Refresh Button -->
+    <div class="text-center mt-3">
+      <button id="refreshFoods" class="btn btn-success">
+        🔄 Refresh Featured Foods
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Social Media Section -->
+<!-- Social Media Section -->
+<section id="social-media" class="py-5 text-center bg-dark text-white">
+  <div class="container">
+    <h2 class="mb-4">🌐 Share FoodFinder</h2>
+    <p>Spread the love for global street foods! Share with your friends:</p>
+    
+    <div class="social-buttons d-flex justify-content-center gap-3">
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://jheeeenn.github.io/FoodFinder/index.html" 
+         target="_blank" class="btn btn-primary">
+        <i class="fab fa-facebook-f"></i> Share
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/intent/tweet?text=Check%20out%20FoodFinder%20-%20Explore%20street%20foods%20around%20the%20globe!&url=https://jheeeenn.github.io/FoodFinder/index.html" 
+         target="_blank" class="btn btn-info text-white">
+        <i class="fab fa-twitter"></i> Tweet
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/yourprofile/" 
+         target="_blank" class="btn btn-danger">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+
+    </div>
+  </div>
+</section>
+
   <!-- Facebook SDK -->
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" 
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+
+  <!-- Twitter SDK -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 
-  <!-- Cookie Consent Banner -->
+<!-- Cookie Consent Banner -->
   <div id="cookie-banner" class="cookie-banner">
     <p>
       We use cookies to enhance your experience. 
@@ -292,6 +358,8 @@
 
 
 <!-- External Custom JS File -->
+ <script src="countries.js"></script>
+
 <script src="mainpage_script.js"></script> 
 
 </body>

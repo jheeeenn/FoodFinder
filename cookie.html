@@ -7,17 +7,64 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <style>
-body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { margin-bottom: 20px; }
-    .cookie-status { margin-top: 20px; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; }
-    
-footer {
-    background: #33333396;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Time New Roman", sans-serif;
+    font-size: 20px;
 }
+body { 
+  font-family: Arial, sans-serif; 
+  padding: 20px; 
+  padding-top: 100px;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  background: 
+    linear-gradient(-120deg,  #8a888591,#b7c8bd89,#cfc5c191),
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55));
+}
+
+main {
+  flex: 1; 
+}
+
+h1 {
+  margin: 20px auto;
+  font-size: 2.2rem;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+p, ul {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.cookie-status { 
+  margin-top: 20px; 
+  margin-bottom: 40px; 
+  padding: 15px; 
+  background: #c5d5dfb6; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+}
+
+footer {
+  background: #33333396;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  position: relative;
+}
+    
+
 .nav-bar{
     margin: auto;
     width: 100%;
@@ -28,6 +75,9 @@ footer {
     position : fixed;
     padding:10px 35px;
     z-index: 10;
+    top: 0;
+    left: 0;
+
 }
 .logo {
     color: #ffffff;
@@ -62,39 +112,11 @@ footer {
     border-radius: 3px;
 }
 
-/* Street_Foods Dropdown Menu */
-.dropdown{
-    position: relative;
-}
-.nav-bar .dropdown .dropdown-content {
-    display: none !important;
-    position: absolute;
-    background-color: #565b576c;
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 3px;
-    z-index: 1000;
-}
-.dropdown-content li {
-    margin: 0;
-}
-.dropdown-content li a {
-    display: block;
-    padding: 15px 0px;
-    text-align: center;
-    text-decoration: none;
-}
-.nav-bar .dropdown:hover .dropdown-content {
-    display: flex !important;
-}
-.dropdown-content li a:hover {
-   background-color: #575757;
-}
 
-/*for mobible device / small device*/
+
+
+/* Responsive Design */
+/* Navigation Bar for small screens / mobile deive */
 @media (max-width: 900px) {
   .nav-bar {
     flex-wrap: wrap;
@@ -107,7 +129,32 @@ footer {
   .nav-bar ul li {
     margin: 5px 10px;
   }
+  
 }
+@media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .logo {
+        font-size: 24px;
+        padding-left: 5px;
+      }
+      h1 {
+        margin: 120px auto 0 auto;
+        font-size: 1.8rem;
+      }
+
+      p, ul {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .cookie-status {
+        font-size: 0.9rem;
+      }
+}
+
   </style>
 
 
@@ -119,21 +166,9 @@ footer {
     <div class="logo">FoodFinder</div>
 
     <ul>
-      <li><a href="#Home">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li class= "dropdown">
-        <a href= "#Countries"> Countries ▾ </a>
-        <ul class="dropdown-content">
-          <li><a href="thailand.html">Thailand</a></li>
-          <li><a href="germany.html">Germany</a></li>
-          <li><a href="us.html">United States</a></li>
-          <li><a href="japan.html">Japan</a></li>
-          <li><a href="china.html">China</a></li>
-          <li><a href="turkey.html">Turkey</a></li>
-          <li><a href="malaysia.html">Malaysia</a></li>
-          <li><a href="kiribati.html">Kiribati</a></li>
-        </ul>
-      </li>  
+
       <li><a href="feedbackpage.html">Feedback</a></li>
       <li><a href="login.html">Account</a></li>
     </ul>
@@ -155,11 +190,11 @@ footer {
     Checking cookie status...
   </div>
 
-<script src="mainpage_script.js"></script> 
-
   <footer>
     &copy; 2025 FoodFinder | Global Street Food Guide
   </footer>
 
+<script src="mainpage_script.js"></script> 
 </body>
+
 </html>

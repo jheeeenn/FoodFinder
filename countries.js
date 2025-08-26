@@ -5,7 +5,7 @@
         name: 'Corn Dog',
         country: 'United States',
         flag: 'https://flagcdn.com/w320/us.png',
-        image: 'multimedia_content/images/corndog.jpg ',
+        image: 'multimedia_content/images/corndog.jpg',
         category: 'Snack',
         description: "The corn dog is a popular American snack that originated in the early 20th century. It consists of a hot dog sausage coated in a thick layer of cornmeal batter, which is then deep-fried to a golden brown. The exact origins of the corn dog are debated, but it is widely believed to have been invented at state fairs and carnivals in the United States during the 1920s and 1930s. The corn dog quickly gained popularity due to its convenient handheld format and delicious combination of savory sausage and crispy cornmeal coating. Today, corn dogs are a beloved treat enjoyed at fairs, sporting events, and fast-food establishments across the country.",
         ingredients: [
