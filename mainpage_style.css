@@ -530,7 +530,7 @@ body {
 /* Animation for highlights and featured foods cards */
 /* Hidden state */
 .highlight-card, .food-card {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(50px);
   transition: all 1.5s ease-out;
 }
@@ -655,3 +655,4 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
 }
+
