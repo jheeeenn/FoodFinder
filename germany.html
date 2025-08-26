@@ -24,12 +24,18 @@
 
     <ul>
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li class= "dropdown">
         <a href= "index.html#Countries"> Countries ▾ </a>
         <ul class="dropdown-content">
           <li><a href="thailand.html">Thailand</a></li>
           <li><a href="germany.html">Germany</a></li>
           <li><a href="us.html">United States</a></li>
+          <li><a href="japan.html">Japan</a></li>
+          <li><a href="china.html">China</a></li>
+          <li><a href="turkey.html">Turkey</a></li>
+          <li><a href="malaysia.html">Malaysia</a></li>
+          <li><a href="kiribati.html">Kiribati</a></li>
         </ul>
       </li>  
       <li><a href="feedbackpage.html">Feedback</a></li>
@@ -75,11 +81,7 @@
 
             </div>
             <p class="card-text">
-                Pretzels have a long history in Europe, with origins believed to date back to the Early Middle Ages. 
-                They were created by monks as a reward for children who learned their prayers, symbolizing folded arms in devotion. 
-                In Germany, pretzels became an iconic street food, especially in the southern regions such as Bavaria and Swabia. 
-                Today, pretzels are enjoyed worldwide, often sold fresh by street vendors or in bakeries. 
-                Their characteristic knot shape, chewy texture, and crunchy salted crust make them a beloved snack and a cultural symbol of Germany.
+              Pretzels are a classic German street food, made from dough shaped into a knot and baked to a golden brown. With their chewy texture and salty crust, they are a beloved snack enjoyed fresh from bakeries and street stalls.
             </p>
             </div>
         </div>
@@ -89,6 +91,106 @@
           <h3>Pretzel</h3>
           <p>Click explore to learn more about this delicious German dish!</p>
           <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('pretzel')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bratwurst Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/bratwurst.jpg" alt="Bratwurst" title="Bratwurst">
+          <div class="food-card-content">
+            <div class="category">Sausage</div>
+            <h5>Bratwurst</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/de.png" alt="Germany" style="width:24px; height:16px;">
+              <span>Germany</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/meat.png" alt="beef/pork" title="beef/pork" width="20">
+              <img src="multimedia_content/images/bread.png" alt="bun" title="bun" width="20">
+              <img src="multimedia_content/images/mustard.png" alt="mustard" title="mustard" width="20">
+            </div>
+            <p class="card-text">
+              A German favorite, Bratwurst is a grilled pork or beef sausage often served in a crusty bun with mustard or sauerkraut. 
+              Its smoky, savory flavor makes it a staple at street markets and festivals.
+            </p>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="food-card-back">
+          <h3>Bratwurst</h3>
+          <p>Click explore to learn more about this German sausage classic!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('bratwurst')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currywurst Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/currywurst.jpg" alt="Currywurst" title="Currywurst">
+          <div class="food-card-content">
+            <div class="category">Sausage Dish</div>
+            <h5>Currywurst</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/de.png" alt="Germany" style="width:24px; height:16px;">
+              <span>Germany</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/meat.png" alt="sausage" title="sausage" width="20">
+              <img src="multimedia_content/images/tomato.png" alt="tomato sauce" title="tomato sauce" width="20">
+              <img src="multimedia_content/images/chilli.png" alt="curry powder" title="curry powder" width="20">
+            </div>
+            <p class="card-text">
+              Invented in Berlin, Currywurst is sliced sausage smothered in ketchup mixed with curry powder. 
+              A quick, spicy, and iconic German street snack often paired with fries.
+            </p>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="food-card-back">
+          <h3>Currywurst</h3>
+          <p>Click explore to learn more about this Berlin classic!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('currywurst')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fischbrötchen Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/fischbrotchen.jpg" alt="Fischbrötchen" title="Fischbrötchen">
+          <div class="food-card-content">
+            <div class="category">Seafood Sandwich</div>
+            <h5>Fischbrötchen</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/de.png" alt="Germany" style="width:24px; height:16px;">
+              <span>Germany</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/fish.png" alt="herring" title="herring" width="20">
+              <img src="multimedia_content/images/bread.png" alt="bun" title="bun" width="20">
+              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
+              <img src="multimedia_content/images/lettuce.png" alt="lettuce" title="lettuce" width="20">
+            </div>
+            <p class="card-text">
+              A northern German specialty, Fischbrötchen is a sandwich made with fresh or pickled fish, onions, and lettuce in a crusty roll. 
+              Refreshing and savory, it’s a must-try at seaside food stalls.
+            </p>
+          </div>
+        </div>
+        <!-- Back -->
+        <div class="food-card-back">
+          <h3>Fischbrötchen</h3>
+          <p>Click explore to learn more about this northern German favorite!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('fischbrotchen')">Explore</button>
         </div>
       </div>
     </div>
@@ -122,11 +224,7 @@
               <span class="label">Introduction</span>
             </div>
             <p class="card-text" id="modalDescription">
-              Pretzel originated in the mid-20th century during a period of national reform in Germany. 
-              It was promoted as a national dish to encourage rice butter consumption and quickly became 
-              popular as affordable street food. Pretzel is a classic German stir-fried butter dish with eggs, tofu, tamarind sauce, bakingsodas, 
-              and yeast or flour. Often served with lime wedges and fresh water sprouts, 
-              this street food favorite is flavorful, tangy, and slightly sweet.
+           Pretzels are a classic German street food, made from dough shaped into a knot and baked to a golden brown. With their chewy texture and salty crust, they are a beloved snack enjoyed fresh from bakeries and street stalls.
             </p>
           </div>
           

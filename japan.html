@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore United States Street Food</title>
+  <title>Explore Japan Street Food</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@
 
 <style>
   header {
-    background-image: url('multimedia_content/images/us.jpg');
+    background-image: url('multimedia_content/images/japan.jpg');
   }
 </style>
 <body>
-  <!-- Nav Bar -->
+   <!-- Nav Bar -->
    <nav class = "nav-bar">
     <div class="logo">FoodFinder</div>
 
@@ -28,7 +28,6 @@
       <li class= "dropdown">
         <a href= "index.html#Countries"> Countries ▾ </a>
         <ul class="dropdown-content">
-        <li><a href="thailand.html">Thailand</a></li>
           <li><a href="thailand.html">Thailand</a></li>
           <li><a href="germany.html">Germany</a></li>
           <li><a href="us.html">United States</a></li>
@@ -44,10 +43,9 @@
     </ul>
    </nav>
 
-
   <!-- Header -->
   <header class="header">
-    <h1>Explore United States Street Food</h1>
+    <h1>Explore Japan Street Food</h1>
     <h2>Discover the best street food around the world</h2>
   </header>
 
@@ -59,160 +57,143 @@
 
   <!-- Food Section -->
   <div class="food-section">
-
-    <!-- Corn Dog Card -->
+    
+    <!-- Okonomiyaki Card -->
     <div class="food-card-container">
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/corndog.jpg" alt="Corn Dog" title="Corn Dog">
+          <img class="food-img" src="multimedia_content/images/okonomiyaki.jpg" alt="Okonomiyaki" title="Okonomiyaki">
           <div class="food-card-content">
-            <div class="category">Snack</div>
-            <h5>Corn Dog</h5>
+            <div class="category">Pancake</div>
+            <h5>Okonomiyaki</h5>
             <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
+              <img class="food-flag" src="https://flagcdn.com/w320/jp.png" alt="Japan" style="width:24px; height:16px;">
+              <span>Japan</span>
             </div>
             <div class="food-icons">
-              <img src="multimedia_content/images/hotdog.png" alt="hotdog" title="hotdog" width="20">
-              <img src="multimedia_content/images/cornmeal.jpg" alt="cornmeal" title="cornmeal" width="20">
               <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
-              <img src="multimedia_content/images/milk.png" alt="milk" title="milk" width="20">
+              <img src="multimedia_content/images/egg.png" alt="eggs" title="eggs" width="20">
+              <img src="multimedia_content/images/cabbage.png" alt="cabbage" title="cabbage" width="20">
+              <img src="multimedia_content/images/greenonion.png" alt="green onion" title="green onion" width="20">
+              <img src="multimedia_content/images/sauce.png" alt="okonomiyaki sauce" title="okonomiyaki sauce" width="20">
+              <img src="multimedia_content/images/mayonaise.png" alt="mayonnaise" title="mayonnaise" width="20">
+              <img src="multimedia_content/images/bonito.jpg" alt="bonito flakes" title="bonito flakes" width="20">
+              <img src="multimedia_content/images/seaweedflake" alt="seaweed flakes" title="seaweed flakes" width="20">
+            </div>
+            <p class="card-text">Okonomiyaki is a Japanese savory pancake made with a batter of flour, eggs, shredded cabbage, and various other ingredients depending on taste.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Okonomiyaki</h3>
+          <p>Click explore to learn more about this delicious Japan dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('okonomiyaki')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daifuku Mochi Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/daifukumochi.jpg" alt="Daifuku Mochi" title="Daifuku Mochi">
+          <div class="food-card-content">
+            <div class="category">Dessert</div>
+            <h5>Daifuku Mochi</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/jp.png" alt="Japan" style="width:24px; height:16px;">
+              <span>Japan</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/flour.png" alt="glutinous rice flour" title="glutinous rice flour" width="20">
+              <img src="multimedia_content/images/redbeanpaste.png" alt="red bean paste" title="red bean paste" width="20">
+              <img src="multimedia_content/images/brownsugar.png" alt="sugar" title="sugar" width="20">
+              <img src="multimedia_content/images/cornstarch.png" alt="cornstarch" title="cornstarch" width="20">
+            </div>
+            <p class="card-text">Daifuku Mochi is a traditional Japanese sweet made from soft glutinous rice flour dough filled with sweet red bean paste. It is chewy, slightly sweet, and often enjoyed as a festive or everyday treat.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Daifuku Mochi</h3>
+          <p>Click explore to learn more about this classic Japanese dessert!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('daifuku')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taiyaki Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/taiyaki.jpg" alt="Taiyaki" title="Taiyaki">
+          <div class="food-card-content">
+            <div class="category">Dessert</div>
+            <h5>Taiyaki</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/jp.png" alt="Japan" style="width:24px; height:16px;">
+              <span>Japan</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
               <img src="multimedia_content/images/egg.png" alt="egg" title="egg" width="20">
-              <img src="multimedia_content/images/bakingsoda.jpg" alt="bakingsoda" title="bakingsoda" width="20">
-              <img src="multimedia_content/images/salt.png" alt="salt" title="salt" width="20">
-              <img src="multimedia_content/images/oil.png" alt="oil" title="oil" width="20">
-              <img src="multimedia_content/images/sugar.jpg" alt="sugar" title="sugar" width="20">                          
-
+              <img src="multimedia_content/images/brownsugar.png" alt="sugar" title="sugar" width="20">
+              <img src="multimedia_content/images/milk.png" alt="milk" title="milk" width="20">
+              <img src="multimedia_content/images/redbeanpaste.png" alt="red bean paste" title="red bean paste" width="20">
             </div>
-            <p class="card-text">
-               Corn Dogs are an iconic American fair food—hot dogs dipped in cornmeal batter, deep-fried, and served on a stick. Crispy, fluffy, and savory, they remain a classic street snack across the U.S.
-            </div>
-        </div>
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>Corn Dog</h3>
-          <p>Click explore to learn more about this delicious US dish!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('corndog')">Explore</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Chicago-Style Hot Dog Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/chicagohotdog.jpg" alt="Chicago-Style Hot Dog" title="Chicago-Style Hot Dog">
-          <div class="food-card-content">
-            <div class="category">Snack</div>
-            <h5>Chicago-Style Hot Dog</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/hotdog.png" alt="beef hot dog" title="beef hot dog" width="20">
-              <img src="multimedia_content/images/hotdogbun.jpg" alt="poppy seed bun" title="poppy seed bun" width="20">
-              <img src="multimedia_content/images/mustard.png" alt="mustard" title="mustard" width="20">
-              <img src="multimedia_content/images/relish.jpg"  alt="sweet relish" title="sweet relish" width="20">
-              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
-              <img src="multimedia_content/images/tomato.png" alt="tomato slices" title="tomato slices" width="20">
-              <img src="multimedia_content/images/pickle.png" alt="pickle spear" title="pickle spear" width="20">
-              <img src="multimedia_content/images/pepper.png" alt="sport peppers" title="sport peppers" width="20">
-              <img src="multimedia_content/images/salt.png" alt="celery salt" title="celery salt" width="20">
-            </div>
-            <p class="card-text">
-              The Chicago-style hot dog, created during the Great Depression as a hearty, affordable meal, is served on a poppy seed bun with an all-beef frank. Topped with mustard, relish, onions, tomato, a pickle spear, sport peppers, and celery salt—but never ketchup—this 'dragged through the garden' classic is an enduring symbol of Chicago’s food culture.
-            </p>
+            <p class="card-text">Taiyaki is a popular Japanese fish-shaped cake with a crisp outside and soft inside, traditionally filled with sweet red bean paste.</p>
           </div>
         </div>
         
         <!-- Back of the card -->
         <div class="food-card-back">
-          <h3>Chicago-Style Hot Dog</h3>
-          <p>Click explore to learn more about this iconic Chicago favorite!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('chicagodog')">Explore</button>
+          <h3>Taiyaki</h3>
+          <p>Click explore to learn more about this delightful Japanese treat!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('taiyaki')">Explore</button>
         </div>
       </div>
     </div>
 
-    <!-- New York-Style Pizza Card -->
+    <!-- Takoyaki Card -->
     <div class="food-card-container">
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/newyorkstylepizza.jpg" alt="New York-Style Pizza" title="New York-Style Pizza">
+          <img class="food-img" src="multimedia_content/images/takoyaki.png" alt="Takoyaki" title="Takoyaki">
           <div class="food-card-content">
-            <div class="category">Pizza</div>
-            <h5>New York-Style Pizza</h5>
+            <div class="category">Street Food</div>
+            <h5>Takoyaki</h5>
             <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
+              <img class="food-flag" src="https://flagcdn.com/w320/jp.png" alt="Japan" style="width:24px; height:16px;">
+              <span>Japan</span>
             </div>
             <div class="food-icons">
               <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
-              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato sauce" width="20">
-              <img src="multimedia_content/images/cheese.png" alt="mozzarella" title="mozzarella cheese" width="20">
-              <img src="multimedia_content/images/oliveoil.png" alt="olive oil" title="olive oil" width="20">
-              <img src="multimedia_content/images/oregano.png" alt="oregano" title="oregano" width="20">
+              <img src="multimedia_content/images/egg.png" alt="egg" title="egg" width="20">
+              <img src="multimedia_content/images/octopus.png" alt="octopus" title="octopus" width="20">
+              <img src="multimedia_content/images/greenonion.png" alt="green onion" title="green onion" width="20">
+              <img src="multimedia_content/images/ginger.png" alt="pickled ginger" title="pickled ginger" width="20">
+              <img src="multimedia_content/images/sauce.png" alt="takoyaki sauce" title="takoyaki sauce" width="20">
+              <img src="multimedia_content/images/mayonaise.png" alt="mayonnaise" title="mayonnaise" width="20">
+              <img src="multimedia_content/images/bonito.jpg" alt="bonito flakes" title="bonito flakes" width="20">
             </div>
-            <p class="card-text">
-              New York-style pizza is known for its large, thin, and foldable slices topped with tomato sauce and mozzarella. 
-              Baked in coal or gas ovens, it’s crisp yet chewy and often sold by the slice, making it an iconic street food of New York City.
-            </p>
-          </div>
-        </div>
-
-
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>New York-Style Pizza</h3>
-          <p>Click explore to learn more about this iconic New York street food!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('nypizza')">Explore</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Texas BBQ Brisket Sandwich Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/Brisketsandwich.jpg" alt="Texas BBQ Brisket Sandwich" title="Texas BBQ Brisket Sandwich">
-          <div class="food-card-content">
-            <div class="category">BBQ Sandwich</div>
-            <h5>Texas BBQ Brisket Sandwich</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/meat.png" alt="beef brisket" title="beef brisket" width="20">
-              <img src="multimedia_content/images/bread.png" alt="bun" title="bun" width="20">
-              <img src="multimedia_content/images/sauce.png" alt="bbq sauce" title="bbq sauce" width="20">
-              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
-              <img src="multimedia_content/images/pickle.png" alt="pickles" title="pickles" width="20">
-            </div>
-            <p class="card-text">
-              Texas BBQ brisket sandwiches feature smoky, slow-cooked beef piled high on a soft bun, often topped with BBQ sauce, onions, and pickles. 
-              Famous for its rich flavor and tender texture, this sandwich embodies the heart of Texas barbecue culture.
-            </p>
+            <p class="card-text">Takoyaki are ball-shaped Japanese snacks made from wheat batter and filled with diced octopus, cooked in a special molded pan, and topped with savory sauce, mayonnaise, and bonito flakes.</p>
           </div>
         </div>
         
         <!-- Back of the card -->
         <div class="food-card-back">
-          <h3>Texas BBQ Brisket Sandwich</h3>
-          <p>Click explore to learn more about this smoky Texas classic!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('texasbrisket')">Explore</button>
+          <h3>Takoyaki</h3>
+          <p>Click explore to learn more about this iconic Japanese street snack!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('takoyaki')">Explore</button>
         </div>
       </div>
     </div>
-
-
   </div>
 
   <!-- Food Detail Modal -->
@@ -222,16 +203,16 @@
       
       <div class="centered-modal-content">
         <div class="modal-header">
-          <h2 id="modalFoodName">Corn Dog</h2>
+          <h2 id="modalFoodName">Okonomiyaki</h2>
           <div class="food-country">
-            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States">
-            <span id="modalFoodCountry">United States</span>
+            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/jp.png" alt="Japan">
+            <span id="modalFoodCountry">Japan</span>
           </div>
-          <div class="category">Snack</div>
+          <div class="category">Pancake</div>
         </div>
         
         <div class="modal-image-container">
-          <img id="modalFoodImage" class="modal-image" src="multimedia_content/images/corndog.png" alt="Corn Dog">
+          <img id="modalFoodImage" class="modal-image" src="multimedia_content/images/okonomiyaki.jpg" alt="Okonomiyaki">
         </div>
         
         <div class="modal-details">
@@ -242,11 +223,7 @@
               <span class="label">Introduction</span>
             </div>
             <p class="card-text" id="modalDescription">
-              Corn Dog originated in the mid-20th century during a period of national reform in United States. 
-              It was promoted as a national dish to encourage rice butter consumption and quickly became 
-              popular as affordable street food. Corn Dog is a classic German stir-fried butter dish with eggs, tofu, tamarind sauce, bakingsodas, 
-              and yeast or flour. Often served with lime wedges and fresh water sprouts, 
-              this street food favorite is flavorful, tangy, and slightly sweet.
+             Okonomiyaki is a beloved Japanese street food often described as a savory pancake or 'Japanese pizza.' Its name comes from 'okonomi,' meaning 'as you like,' and 'yaki,' meaning 'grilled,' reflecting the dish’s versatility in ingredients and toppings. Typically made from a batter of flour, eggs, shredded cabbage, and grated yam, it can include additions like pork belly, shrimp, or squid. Cooked on a teppan (iron griddle), it is commonly topped with tangy okonomiyaki sauce, creamy Japanese mayonnaise, dried bonito flakes, and seaweed powder. Regional variations are popular, with Osaka-style mixing ingredients into the batter and Hiroshima-style layering noodles and toppings. Okonomiyaki has become an iconic comfort food in Japan, celebrated for its rich flavors and customizable nature.
             </p>
           </div>
           
@@ -306,7 +283,7 @@
 
   <!-- Video Section -->
   <div class="container my-5">
-    <h2 class="text-center mb-3">🎥 Watch United States Street Food</h2>
+    <h2 class="text-center mb-3">🎥 Watch Japan Street Food</h2>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/Uz1PjL0n5hE" frameborder="0" allowfullscreen></iframe>
     </div>

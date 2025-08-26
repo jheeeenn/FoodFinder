@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore United States Street Food</title>
+  <title>Explore Turkey Street Food</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="countries.css">
-</head>
+  </head>
 
-<style>
+  <style>
   header {
-    background-image: url('multimedia_content/images/us.jpg');
+    background-image: url('multimedia_content/images/turkey.png');
   }
 </style>
+
 <body>
-  <!-- Nav Bar -->
+<!-- Nav Bar -->
    <nav class = "nav-bar">
     <div class="logo">FoodFinder</div>
 
@@ -28,7 +29,6 @@
       <li class= "dropdown">
         <a href= "index.html#Countries"> Countries ▾ </a>
         <ul class="dropdown-content">
-        <li><a href="thailand.html">Thailand</a></li>
           <li><a href="thailand.html">Thailand</a></li>
           <li><a href="germany.html">Germany</a></li>
           <li><a href="us.html">United States</a></li>
@@ -43,11 +43,10 @@
       <li><a href="login.html">Account</a></li>
     </ul>
    </nav>
-
-
+   
   <!-- Header -->
   <header class="header">
-    <h1>Explore United States Street Food</h1>
+    <h1>Explore Turkey Street Food</h1>
     <h2>Discover the best street food around the world</h2>
   </header>
 
@@ -59,160 +58,171 @@
 
   <!-- Food Section -->
   <div class="food-section">
-
-    <!-- Corn Dog Card -->
+    <!-- Döner Kebab Card -->
     <div class="food-card-container">
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/corndog.jpg" alt="Corn Dog" title="Corn Dog">
+          <img class="food-img" src="multimedia_content/images/donerkebab.png" alt="Döner Kebab" title="Döner Kebab">
           <div class="food-card-content">
-            <div class="category">Snack</div>
-            <h5>Corn Dog</h5>
+            <div class="category">Meat</div>
+            <h5>Döner Kebab</h5>
             <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
+              <img class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey" style="width:24px; height:16px;">
+              <span>Turkey</span>
             </div>
             <div class="food-icons">
-              <img src="multimedia_content/images/hotdog.png" alt="hotdog" title="hotdog" width="20">
-              <img src="multimedia_content/images/cornmeal.jpg" alt="cornmeal" title="cornmeal" width="20">
+              <img src="multimedia_content/images/lamb.png" alt="lamb" title="lamb" width="20">
+              <img src="multimedia_content/images/bread.png" alt="bread" title="bread" width="20">
+              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato" width="20">
+              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
+              <img src="multimedia_content/images/lettuce.png" alt="lettuce" title="lettuce" width="20">
+              <img src="multimedia_content/images/yogurt.png" alt="yogurt" title="yogurt" width="20">
+            </div>
+            <p class="card-text">Döner kebab is a Turkish dish made of meat cooked on a vertical rotisserie. Seasoned meat stacked in the shape of an inverted cone is turned slowly on the rotisserie, next to a vertical cooking element.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Döner Kebab</h3>
+          <p>Click explore to learn more about this delicious Turkish dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('doner-kebab')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simit Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/simit.png" alt="Simit" title="Simit">
+          <div class="food-card-content">
+            <div class="category">Bread</div>
+            <h5>Simit</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey" style="width:24px; height:16px;">
+              <span>Turkey</span>
+            </div>
+            <div class="food-icons">
               <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
-              <img src="multimedia_content/images/milk.png" alt="milk" title="milk" width="20">
+              <img src="multimedia_content/images/yeast.png" alt="yeast" title="yeast" width="20">
+              <img src="multimedia_content/images/sesameseeds.png" alt="sesame seeds" title="sesame seeds" width="20">
+              <img src="multimedia_content/images/molasses.png" alt="molasses" title="molasses" width="20">
+            </div>
+            <p class="card-text">Simit is a circular bread, typically encrusted with sesame seeds. Found in Turkey, it is often sold by street vendors and is a popular breakfast food or snack.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Simit</h3>
+          <p>Click explore to learn more about this delicious Turkish dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('simit')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lahmacun Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/lahmacun.png" alt="Lahmacun" title="Lahmacun">
+          <div class="food-card-content">
+            <div class="category">Flatbread</div>
+            <h5>Lahmacun</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey" style="width:24px; height:16px;">
+              <span>Turkey</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/mincedmeat.png" alt="minced meat" title="minced meat" width="20">
+              <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
+              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato" width="20">
+              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
+              <img src="multimedia_content/images/parsley.png" alt="parsley" title="parsley" width="20">
+              <img src="multimedia_content/images/spices.png" alt="spices" title="spices" width="20">
+            </div>
+            <p class="card-text">Lahmacun is a round, thin piece of dough topped with minced meat, vegetables, herbs, and spices then baked. It is often rolled up with vegetables and lemon juice squeezed over it.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Lahmacun</h3>
+          <p>Click explore to learn more about this delicious Turkish dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('lahmacun')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Baklava Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/baklava.png" alt="Baklava" title="Baklava">
+          <div class="food-card-content">
+            <div class="category">Dessert</div>
+            <h5>Baklava</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey" style="width:24px; height:16px;">
+              <span>Turkey</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/phyllodough.png" alt="phyllo dough" title="phyllo dough" width="20">
+              <img src="multimedia_content/images/nuts.png" alt="nuts" title="nuts" width="20">
+              <img src="multimedia_content/images/butter.png" alt="butter" title="butter" width="20">
+              <img src="multimedia_content/images/sugar.png" alt="sugar" title="sugar" width="20">
+              <img src="multimedia_content/images/honey.png" alt="honey" title="honey" width="20">
+            </div>
+            <p class="card-text">Baklava is a rich, sweet dessert pastry made of layers of filo filled with chopped nuts and sweetened with syrup or honey. It is characteristic of the cuisines of the former Ottoman Empire.</p>
+          </div>
+        </div>
+        
+        <!-- Back of the card -->
+        <div class="food-card-back">
+          <h3>Baklava</h3>
+          <p>Click explore to learn more about this delicious Turkish dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('baklava')">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Börek Card -->
+    <div class="food-card-container">
+      <div class="food-card" onclick="flipCard(this)">
+        <!-- Front of the card -->
+        <div class="food-card-front">
+          <img class="food-img" src="multimedia_content/images/borek.png" alt="Börek" title="Börek">
+          <div class="food-card-content">
+            <div class="category">Pastry</div>
+            <h5>Börek</h5>
+            <div class="food-country">
+              <img class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey" style="width:24px; height:16px;">
+              <span>Turkey</span>
+            </div>
+            <div class="food-icons">
+              <img src="multimedia_content/images/phyllodough.png" alt="phyllo dough" title="phyllo dough" width="20">
+              <img src="multimedia_content/images/cheese.png" alt="cheese" title="cheese" width="20">
+              <img src="multimedia_content/images/spinach.png" alt="spinach" title="spinach" width="20">
               <img src="multimedia_content/images/egg.png" alt="egg" title="egg" width="20">
-              <img src="multimedia_content/images/bakingsoda.jpg" alt="bakingsoda" title="bakingsoda" width="20">
-              <img src="multimedia_content/images/salt.png" alt="salt" title="salt" width="20">
-              <img src="multimedia_content/images/oil.png" alt="oil" title="oil" width="20">
-              <img src="multimedia_content/images/sugar.jpg" alt="sugar" title="sugar" width="20">                          
-
+              <img src="multimedia_content/images/butter.png" alt="butter" title="butter" width="20">
             </div>
-            <p class="card-text">
-               Corn Dogs are an iconic American fair food—hot dogs dipped in cornmeal batter, deep-fried, and served on a stick. Crispy, fluffy, and savory, they remain a classic street snack across the U.S.
-            </div>
-        </div>
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>Corn Dog</h3>
-          <p>Click explore to learn more about this delicious US dish!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('corndog')">Explore</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Chicago-Style Hot Dog Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/chicagohotdog.jpg" alt="Chicago-Style Hot Dog" title="Chicago-Style Hot Dog">
-          <div class="food-card-content">
-            <div class="category">Snack</div>
-            <h5>Chicago-Style Hot Dog</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/hotdog.png" alt="beef hot dog" title="beef hot dog" width="20">
-              <img src="multimedia_content/images/hotdogbun.jpg" alt="poppy seed bun" title="poppy seed bun" width="20">
-              <img src="multimedia_content/images/mustard.png" alt="mustard" title="mustard" width="20">
-              <img src="multimedia_content/images/relish.jpg"  alt="sweet relish" title="sweet relish" width="20">
-              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
-              <img src="multimedia_content/images/tomato.png" alt="tomato slices" title="tomato slices" width="20">
-              <img src="multimedia_content/images/pickle.png" alt="pickle spear" title="pickle spear" width="20">
-              <img src="multimedia_content/images/pepper.png" alt="sport peppers" title="sport peppers" width="20">
-              <img src="multimedia_content/images/salt.png" alt="celery salt" title="celery salt" width="20">
-            </div>
-            <p class="card-text">
-              The Chicago-style hot dog, created during the Great Depression as a hearty, affordable meal, is served on a poppy seed bun with an all-beef frank. Topped with mustard, relish, onions, tomato, a pickle spear, sport peppers, and celery salt—but never ketchup—this 'dragged through the garden' classic is an enduring symbol of Chicago’s food culture.
-            </p>
+            <p class="card-text">Börek is a family of baked filled pastries made of a thin flaky dough such as phyllo. It can be filled with cheese, minced meat, vegetables, or potatoes.</p>
           </div>
         </div>
         
         <!-- Back of the card -->
         <div class="food-card-back">
-          <h3>Chicago-Style Hot Dog</h3>
-          <p>Click explore to learn more about this iconic Chicago favorite!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('chicagodog')">Explore</button>
+          <h3>Börek</h3>
+          <p>Click explore to learn more about this delicious Turkish dish!</p>
+          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('borek')">Explore</button>
         </div>
       </div>
     </div>
-
-    <!-- New York-Style Pizza Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/newyorkstylepizza.jpg" alt="New York-Style Pizza" title="New York-Style Pizza">
-          <div class="food-card-content">
-            <div class="category">Pizza</div>
-            <h5>New York-Style Pizza</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
-              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato sauce" width="20">
-              <img src="multimedia_content/images/cheese.png" alt="mozzarella" title="mozzarella cheese" width="20">
-              <img src="multimedia_content/images/oliveoil.png" alt="olive oil" title="olive oil" width="20">
-              <img src="multimedia_content/images/oregano.png" alt="oregano" title="oregano" width="20">
-            </div>
-            <p class="card-text">
-              New York-style pizza is known for its large, thin, and foldable slices topped with tomato sauce and mozzarella. 
-              Baked in coal or gas ovens, it’s crisp yet chewy and often sold by the slice, making it an iconic street food of New York City.
-            </p>
-          </div>
-        </div>
-
-
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>New York-Style Pizza</h3>
-          <p>Click explore to learn more about this iconic New York street food!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('nypizza')">Explore</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Texas BBQ Brisket Sandwich Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/Brisketsandwich.jpg" alt="Texas BBQ Brisket Sandwich" title="Texas BBQ Brisket Sandwich">
-          <div class="food-card-content">
-            <div class="category">BBQ Sandwich</div>
-            <h5>Texas BBQ Brisket Sandwich</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States" style="width:24px; height:16px;">
-              <span>United States</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/meat.png" alt="beef brisket" title="beef brisket" width="20">
-              <img src="multimedia_content/images/bread.png" alt="bun" title="bun" width="20">
-              <img src="multimedia_content/images/sauce.png" alt="bbq sauce" title="bbq sauce" width="20">
-              <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
-              <img src="multimedia_content/images/pickle.png" alt="pickles" title="pickles" width="20">
-            </div>
-            <p class="card-text">
-              Texas BBQ brisket sandwiches feature smoky, slow-cooked beef piled high on a soft bun, often topped with BBQ sauce, onions, and pickles. 
-              Famous for its rich flavor and tender texture, this sandwich embodies the heart of Texas barbecue culture.
-            </p>
-          </div>
-        </div>
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>Texas BBQ Brisket Sandwich</h3>
-          <p>Click explore to learn more about this smoky Texas classic!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('texasbrisket')">Explore</button>
-        </div>
-      </div>
-    </div>
-
-
   </div>
 
   <!-- Food Detail Modal -->
@@ -222,16 +232,16 @@
       
       <div class="centered-modal-content">
         <div class="modal-header">
-          <h2 id="modalFoodName">Corn Dog</h2>
+          <h2 id="modalFoodName">Döner Kebab</h2>
           <div class="food-country">
-            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/us.png" alt="United States">
-            <span id="modalFoodCountry">United States</span>
+            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/tr.png" alt="Turkey">
+            <span id="modalFoodCountry">Turkey</span>
           </div>
-          <div class="category">Snack</div>
+          <div class="category">Meat</div>
         </div>
         
         <div class="modal-image-container">
-          <img id="modalFoodImage" class="modal-image" src="multimedia_content/images/corndog.png" alt="Corn Dog">
+          <img id="modalFoodImage" class="modal-image" src="https://images.unsplash.com/photo-1626700051175-681801c01b71" alt="Döner Kebab">
         </div>
         
         <div class="modal-details">
@@ -242,11 +252,9 @@
               <span class="label">Introduction</span>
             </div>
             <p class="card-text" id="modalDescription">
-              Corn Dog originated in the mid-20th century during a period of national reform in United States. 
-              It was promoted as a national dish to encourage rice butter consumption and quickly became 
-              popular as affordable street food. Corn Dog is a classic German stir-fried butter dish with eggs, tofu, tamarind sauce, bakingsodas, 
-              and yeast or flour. Often served with lime wedges and fresh water sprouts, 
-              this street food favorite is flavorful, tangy, and slightly sweet.
+              Döner kebab was invented in the 19th century in the Ottoman Empire, with its modern form developing in the 1970s in Berlin, Germany, by Turkish immigrants. 
+              It consists of meat stacked in an inverted cone which is turned slowly on a vertical rotisserie next to a vertical cooking element. 
+              The outer layer is sliced into thin shavings as it cooks, typically served in a wrap or on a plate with rice and vegetables.
             </p>
           </div>
           
@@ -306,9 +314,9 @@
 
   <!-- Video Section -->
   <div class="container my-5">
-    <h2 class="text-center mb-3">🎥 Watch United States Street Food</h2>
+    <h2 class="text-center mb-3">🎥 Watch Turkey Street Food</h2>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/Uz1PjL0n5hE" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/4JqgXaLUP_s" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -325,7 +333,7 @@
   <div class="container text-center my-5">
     <h2>📢 Share This Page</h2>
     <div class="fb-share-button" 
-         data-href="https://yourwebsite.com/thailand" 
+         data-href="https://yourwebsite.com/turkey" 
          data-layout="button" 
          data-size="large"></div>
   </div>
@@ -344,8 +352,7 @@
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" 
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <div id="fb-root"></div>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore China Street Food</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="countries.css">
+</head>
+
+<style>
+  header {
+    background-image: url('multimedia_content/images/china.jpg');
+  }
+</style>
+<body>
+
+   <!-- Nav Bar -->
+   <nav class = "nav-bar">
+    <div class="logo">FoodFinder</div>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class= "dropdown">
+        <a href= "index.html#Countries"> Countries ▾ </a>
+        <ul class="dropdown-content">
+          <li><a href="thailand.html">Thailand</a></li>
+          <li><a href="germany.html">Germany</a></li>
+          <li><a href="us.html">United States</a></li>
+          <li><a href="japan.html">Japan</a></li>
+          <li><a href="china.html">China</a></li>
+          <li><a href="turkey.html">Turkey</a></li>
+          <li><a href="malaysia.html">Malaysia</a></li>
+          <li><a href="kiribati.html">Kiribati</a></li>
+        </ul>
+      </li>  
+      <li><a href="feedbackpage.html">Feedback</a></li>
+      <li><a href="login.html">Account</a></li>
+    </ul>
+   </nav>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Explore China Street Food</h1>
+    <h2>Discover the best street food around the world</h2>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Find the food you like..." onkeyup="searchFood()">
+    <i class="fas fa-search search-icon"></i>
+  </div>
+
+  <!-- Food Section -->
+  <div class="food-section">
+    
+    <!-- Xiaolongxia Card -->
+        <div class="food-card-container">
+        <div class="food-card" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="food-card-front">
+            <img class="food-img" src="multimedia_content/images/xiaolongxia.jpg" alt="Xiaolongxia" title="Xiaolongxia">
+            <div class="food-card-content">
+                <div class="category">Seafood</div>
+                <h5>Xiaolongxia</h5>
+                <div class="food-country">
+                <img class="food-flag" src="https://flagcdn.com/w320/cn.png" alt="China" style="width:24px; height:16px;">
+                <span>China</span>
+                </div>
+                <div class="food-icons">
+                <img src="multimedia_content/images/crayfish.jpg" alt="crayfish" title="crayfish" width="20">
+                <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+                <img src="multimedia_content/images/chilli.png" alt="chili" title="chili" width="20">
+                <img src="multimedia_content/images/peppercorn.png" alt="peppercorns" title="peppercorns" width="20">
+                <img src="multimedia_content/images/beer.png" alt="beer" title="beer" width="20">
+                </div>
+                <p class="card-text">Xiaolongxia, or spicy crayfish, is a popular summer night street food cooked with chili, garlic, and Sichuan spices.</p>
+            </div>
+            </div>
+
+            <!-- Back of the card -->
+            <div class="food-card-back">
+            <h3>Xiaolongxia</h3>
+            <p>Click explore to learn more about this spicy Chinese dish!</p>
+            <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('xiaolongxia')">Explore</button>
+            </div>
+        </div>
+        </div>
+
+    <!-- Jianbing Card -->
+        <div class="food-card-container">
+        <div class="food-card" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="food-card-front">
+            <img class="food-img" src="multimedia_content/images/jianbing.jpg" alt="Jianbing" title="Jianbing">
+            <div class="food-card-content">
+                <div class="category">Crepe</div>
+                <h5>Jianbing</h5>
+                <div class="food-country">
+                <img class="food-flag" src="https://flagcdn.com/w320/cn.png" alt="China" style="width:24px; height:16px;">
+                <span>China</span>
+                </div>
+                <div class="food-icons">
+                <img src="multimedia_content/images/flour.png" alt="flour" title="flour" width="20">
+                <img src="multimedia_content/images/egg.png" alt="egg" title="egg" width="20">
+                <img src="multimedia_content/images/greenonion.png" alt="scallion" title="scallion" width="20">
+                <img src="multimedia_content/images/cilantro.jpg" alt="cilantro" title="cilantro" width="20">
+                <img src="multimedia_content/images/cracker.png" alt="crispy cracker" title="crispy cracker" width="20">
+                </div>
+                <p class="card-text">Jianbing is a classic Chinese breakfast crepe filled with egg, herbs, sauces, and a crispy cracker.</p>
+            </div>
+            </div>
+
+            <!-- Back of the card -->
+            <div class="food-card-back">
+            <h3>Jianbing</h3>
+            <p>Click explore to learn more about this famous Chinese breakfast!</p>
+            <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('jianbing')">Explore</button>
+            </div>
+        </div>
+        </div>
+
+    <!-- Tanghulu Card -->
+        <div class="food-card-container">
+        <div class="food-card" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="food-card-front">
+            <img class="food-img" src="multimedia_content/images/tanghulu.jpg" alt="Tanghulu" title="Tanghulu">
+            <div class="food-card-content">
+                <div class="category">Snack</div>
+                <h5>Tanghulu</h5>
+                <div class="food-country">
+                <img class="food-flag" src="https://flagcdn.com/w320/cn.png" alt="China" style="width:24px; height:16px;">
+                <span>China</span>
+                </div>
+                <div class="food-icons">
+                <img src="multimedia_content/images/strawberry.png" alt="fruit" title="fruit" width="20">
+                <img src="multimedia_content/images/grape.png" alt="grapes" title="grapes" width="20">
+                <img src="multimedia_content/images/brownsugar.png" alt="sugar" title="sugar" width="20">
+                </div>
+                <p class="card-text">Tanghulu is a festive snack of skewered fruits coated in shiny hard sugar syrup.</p>
+            </div>
+            </div>
+
+            <!-- Back of the card -->
+            <div class="food-card-back">
+            <h3>Tanghulu</h3>
+            <p>Click explore to learn more about this sweet Chinese street food!</p>
+            <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('tanghulu')">Explore</button>
+            </div>
+        </div>
+        </div>
+
+   <!-- Chuan Shao Card -->
+        <div class="food-card-container">
+        <div class="food-card" onclick="flipCard(this)">
+            <!-- Front of the card -->
+            <div class="food-card-front">
+            <img class="food-img" src="multimedia_content/images/chuanshao.jpg" alt="Chuan Shao" title="Chuan Shao">
+            <div class="food-card-content">
+                <div class="category">BBQ</div>
+                <h5>Chuan Shao</h5>
+                <div class="food-country">
+                <img class="food-flag" src="https://flagcdn.com/w320/cn.png" alt="China" style="width:24px; height:16px;">
+                <span>China</span>
+                </div>
+                <div class="food-icons">
+                <img src="multimedia_content/images/meat.png" alt="lamb" title="lamb" width="20">
+                <img src="multimedia_content/images/chilli.png" alt="chili" title="chili" width="20">
+                <img src="multimedia_content/images/cumin.png" alt="cumin" title="cumin" width="20">
+                <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
+                <img src="multimedia_content/images/sesameseeds.png" alt="sesame seeds" title="sesame seeds" width="20">
+                </div>
+                <p class="card-text">Chuan Shao, or Chinese BBQ skewers, are seasoned with cumin, chili, and sesame seeds, grilled over open flames.</p>
+            </div>
+            </div>
+
+            <!-- Back of the card -->
+            <div class="food-card-back">
+            <h3>Chuan Shao</h3>
+            <p>Click explore to learn more about this smoky Chinese BBQ dish!</p>
+            <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('chuanshao')">Explore</button>
+            </div>
+        </div>
+        </div>
+   
+  </div>      
+  <!-- Food Detail Modal -->
+  <div id="foodModal" class="food-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      
+      <div class="centered-modal-content">
+        <div class="modal-header">
+          <h2 id="modalFoodName">Jianbing</h2>
+          <div class="food-country">
+            <img id="modalFoodFlag" class="food-flag" src="https://flagcdn.com/w320/cn.png" alt="China">
+            <span id="modalFoodCountry">Japan</span>
+          </div>
+          <div class="category">Pancake</div>
+        </div>
+        
+        <div class="modal-image-container">
+          <img id="modalFoodImage" class="modal-image" src="multimedia_content/images/xiaolongxia.jpg" alt="xiaolongxia">
+        </div>
+        
+        <div class="modal-details">
+          <div class="food-description">
+            <div class="description-header">
+              <span class="label">History</span>
+              <span class="divider">|</span>
+              <span class="label">Introduction</span>
+            </div>
+            <p class="card-text" id="modalDescription">
+             Xiaolongxia, or spicy crayfish, is a popular summer night street food cooked with chili, garlic, and Sichuan spices.
+            </p>
+          </div>
+          
+          <h4>Ingredients:</h4>
+          <div class="food-icons" id="modalIngredients">
+            <!-- Ingredients will be populated by JavaScript -->
+          </div>
+
+          <h3>Recipe</h3>
+          <div class="recipe-steps" id="modalRecipe">
+            <!-- Recipe steps will be populated by JavaScript -->
+          </div>
+          
+          <!-- Review Section -->
+          <section class="review-section">
+            <h2>Customer Reviews</h2>
+            
+            <div class="rating-summary">
+              <h3>Average Rating: <span id="average-rating">0.0</span> ⭐</h3>
+            </div>
+
+            <div class="rating-distribution">
+              <h3>Rating Distribution</h3>
+              <canvas id="ratingChart"></canvas>
+            </div>
+
+            <br>
+
+            <form id="reviewForm">
+              <label for="rating">Your Rating:</label>
+              <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+              </div>
+
+              <textarea id="comment" placeholder="Write your review..." required></textarea>
+              
+              <label for="photoUpload" class="file-label">📂 Choose a photo</label>
+              <input type="file" id="photoUpload" accept="image/*">
+
+              <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+
+            <div id="reviewsList"></div>
+          </section>
+          
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="javascript:void(0)" onclick="closeModal()" class="back-btn">← Back to Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-3">🎥 Watch China Street Food</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/Uz1PjL0n5hE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- API Section -->
+  <div class="container text-center my-5">
+    <h2>🍜 Random Food Image from API</h2>
+    <button id="getFoodBtn" class="btn btn-primary">Get Random Food</button>
+    <div class="mt-3">
+      <img id="foodImage" src="" class="img-fluid rounded shadow" alt="Food from API" style="max-height: 300px;">
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <div class="container text-center my-5">
+    <h2>📢 Share This Page</h2>
+    <div class="fb-share-button" 
+         data-href="https://yourwebsite.com/thailand" 
+         data-layout="button" 
+         data-size="large"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; FoodFinder | Global Street Food Guide
+  </footer>
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+  <script src="countries.js"></script>
+</body>
+</html>

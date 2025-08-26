@@ -36,3 +36,46 @@ function searchCountries() {
     }
   }
 }
+// functions for cookie getter and setter
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days*24*60*60*1000));
+  const expires = "expires="+ d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+function getCookie(name) {
+  const cname = name + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let c of ca) {
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(cname) === 0) {
+      return c.substring(cname.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+
+
+// Cookie Consent Banner
+document.addEventListener("DOMContentLoaded", function() {
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("acceptCookies");
+
+  // check if cookies have been accepted
+  if (!getCookie("cookiesAccepted")) {
+    cookieBanner.style.display = "block";
+  }
+  else {
+    cookieBanner.style.display = "none";
+  }
+
+  acceptBtn.addEventListener("click", function() {
+    setCookie("cookiesAccepted", "true",30);
+    cookieBanner.style.display = "none";
+  });
+});

@@ -24,12 +24,18 @@
 
     <ul>
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li class= "dropdown">
         <a href= "index.html#Countries"> Countries ▾ </a>
         <ul class="dropdown-content">
           <li><a href="thailand.html">Thailand</a></li>
           <li><a href="germany.html">Germany</a></li>
           <li><a href="us.html">United States</a></li>
+          <li><a href="japan.html">Japan</a></li>
+          <li><a href="china.html">China</a></li>
+          <li><a href="turkey.html">Turkey</a></li>
+          <li><a href="malaysia.html">Malaysia</a></li>
+          <li><a href="kiribati.html">Kiribati</a></li>
         </ul>
       </li>  
       <li><a href="feedbackpage.html">Feedback</a></li>
@@ -99,7 +105,7 @@
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/tomyum.png" alt="Tom Yum Goong" title="Tom Yum Goong">
+          <img class="food-img" src="multimedia_content/images/tomyumgoong.png" alt="Tom Yum Goong" title="Tom Yum Goong">
           <div class="food-card-content">
             <div class="category">Soup</div>
             <h5>Tom Yum Goong</h5>
@@ -166,48 +172,12 @@
       </div>
     </div>
 
-    <!-- Som Tam Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/somtam.png" alt="Som Tam" title="Som Tam">
-          <div class="food-card-content">
-            <div class="category">Salad</div>
-            <h5>Som Tam</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
-              <span>Thailand</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/papaya.png" alt="papaya" title="papaya" width="20">
-              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
-              <img src="multimedia_content/images/chilli.png" alt="chilli" title="chilli" width="20">
-              <img src="multimedia_content/images/lime.png" alt="lime" title="lime" width="20">
-              <img src="multimedia_content/images/tomato.png" alt="tomato" title="tomato" width="20">
-              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
-              <img src="multimedia_content/images/fishsauce.png" alt="fish sauce" title="fish sauce" width="20">
-              <img src="multimedia_content/images/palmSugar.png" alt="palm sugar" title="palm sugar" width="20">
-            </div>
-            <p class="card-text">Som Tam is a spicy green papaya salad that combines all four tastes - sour, chili-hot, sweet, and salty. It's a popular street food dish throughout Thailand.</p>
-          </div>
-        </div>
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>Som Tam</h3>
-          <p>Click explore to learn more about this delicious Thai dish!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('som-tam')">Explore</button>
-        </div>
-      </div>
-    </div>
-
     <!-- Mango Sticky Rice Card -->
     <div class="food-card-container">
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/mangosticky.png" alt="Mango Sticky Rice" title="Mango Sticky Rice">
+          <img class="food-img" src="multimedia_content/images/mangostickyrice.png" alt="Mango Sticky Rice" title="Mango Sticky Rice">
           <div class="food-card-content">
             <div class="category">Dessert</div>
             <h5>Mango Sticky Rice</h5>
@@ -235,47 +205,12 @@
       </div>
     </div>
 
-    <!-- Satay Card -->
-    <div class="food-card-container">
-      <div class="food-card" onclick="flipCard(this)">
-        <!-- Front of the card -->
-        <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/satay.png" alt="Satay" title="Satay">
-          <div class="food-card-content">
-            <div class="category">Grilled</div>
-            <h5>Satay</h5>
-            <div class="food-country">
-              <img class="food-flag" src="https://flagcdn.com/w320/th.png" alt="Thailand" style="width:24px; height:16px;">
-              <span>Thailand</span>
-            </div>
-            <div class="food-icons">
-              <img src="multimedia_content/images/chicken.png" alt="chicken" title="chicken" width="20">
-              <img src="multimedia_content/images/turmeric.png" alt="turmeric" title="turmeric" width="20">
-              <img src="multimedia_content/images/lemongrass.png" alt="lemongrass" title="lemongrass" width="20">
-              <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
-              <img src="multimedia_content/images/garlic.png" alt="garlic" title="garlic" width="20">
-              <img src="multimedia_content/images/cumin.png" alt="cumin" title="cumin" width="20">
-              <img src="multimedia_content/images/coriander.png" alt="coriander" title="coriander" width="20">
-            </div>
-            <p class="card-text">Satay is a popular Thai street food consisting of marinated, skewered, and grilled meat served with a spicy peanut sauce. It's often made with chicken, beef, or pork.</p>
-          </div>
-        </div>
-        
-        <!-- Back of the card -->
-        <div class="food-card-back">
-          <h3>Satay</h3>
-          <p>Click explore to learn more about this delicious Thai dish!</p>
-          <button class="explore-btn" onclick="event.stopPropagation(); showFoodDetail('satay')">Explore</button>
-        </div>
-      </div>
-    </div>
-
     <!-- Massaman Curry Card -->
     <div class="food-card-container">
       <div class="food-card" onclick="flipCard(this)">
         <!-- Front of the card -->
         <div class="food-card-front">
-          <img class="food-img" src="multimedia_content/images/massaman.png" alt="Massaman Curry" title="Massaman Curry">
+          <img class="food-img" src="multimedia_content/images/massamancurry.png" alt="Massaman Curry" title="Massaman Curry">
           <div class="food-card-content">
             <div class="category">Curry</div>
             <h5>Massaman Curry</h5>
@@ -289,7 +224,7 @@
               <img src="multimedia_content/images/onion.png" alt="onion" title="onion" width="20">
               <img src="multimedia_content/images/peanut.png" alt="peanut" title="peanut" width="20">
               <img src="multimedia_content/images/cardamom.png" alt="cardamom" title="cardamom" width="20">
-              <img src="multimedia_content/images/cinnamon.png" alt="cinnamon" title="cinnamon" width="20">
+              <img src="multimedia_content/images/cinnamom.png" alt="cinnamon" title="cinnamon" width="20">
               <img src="multimedia_content/images/coconutmilk.png" alt="coconut milk" title="coconut milk" width="20">
               <img src="multimedia_content/images/tamarind.png" alt="tamarind" title="tamarind" width="20">
             </div>
