@@ -530,7 +530,7 @@ body {
 /* Animation for highlights and featured foods cards */
 /* Hidden state */
 .highlight-card, .food-card {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(50px);
   transition: all 1.5s ease-out;
 }
@@ -653,4 +653,5 @@ body::-webkit-scrollbar-thumb:hover {
   .food-card p {
     font-size: 0.85rem;
   }
+
 }
