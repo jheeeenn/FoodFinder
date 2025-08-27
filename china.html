@@ -292,14 +292,43 @@
     </div>
   </div>
 
-  <!-- Social Media -->
-  <div class="container text-center my-5">
-    <h2>📢 Share This Page</h2>
-    <div class="fb-share-button" 
-         data-href="https://yourwebsite.com/thailand" 
-         data-layout="button" 
-         data-size="large"></div>
+<!-- Social Media Section -->
+<section id="social-media" class="py-5 text-center bg-dark text-white">
+  <div class="container">
+    <h2 class="mb-4">🌐 Share FoodFinder</h2>
+    <p>Spread the love for global street foods! Share with your friends:</p>
+    
+    <div class="social-buttons d-flex justify-content-center gap-3">
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://jheeeenn.github.io/FoodFinder/index.html" 
+         target="_blank" class="btn btn-primary">
+        <i class="fab fa-facebook-f"></i> Share
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/intent/tweet?text=Check%20out%20FoodFinder%20-%20Explore%20street%20foods%20around%20the%20globe!&url=https://jheeeenn.github.io/FoodFinder/index.html" 
+         target="_blank" class="btn btn-info text-white">
+        <i class="fab fa-twitter"></i> Tweet
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/yourprofile/" 
+         target="_blank" class="btn btn-danger">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+
+    </div>
   </div>
+</section>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+
+  <!-- Twitter SDK -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
   <!-- Footer -->
   <footer>

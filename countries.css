@@ -8,8 +8,8 @@
 }
   
   body {
-    background: linear-gradient(-120deg,  #db8d3991,#52a46f89,#e96f4391),
-            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55));
+    background: linear-gradient(-120deg,  #39a5db91,#74c45c89,#43a7e991),
+            linear-gradient(rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.778));
     color: #333;
     }
 /* Navigation Bar */
@@ -91,7 +91,7 @@
 
 
  /* Header Section */
-    .header {
+.header {
     position: relative;
     width: 100%;
     height: 505px;
@@ -105,7 +105,7 @@
     align-items: center;
   }
 
-    .header::before {
+.header::before {
     content: "";
     position: absolute;
     top: 0; 
@@ -116,14 +116,14 @@
     z-index: 1;
     }
 
-    .header h1, .header h2 {
+.header h1, .header h2 {
     position: relative;
     z-index: 2;
     margin: 0;
     text-align: center;
     }
 
-    .header h1 {
+.header h1 {
     font-family: 'Caveat', 'Roboto', sans-serif;
     font-size: 80px;
     color: #ffffff;
@@ -132,7 +132,7 @@
     letter-spacing: 0.5px;
     }
 
-    .header h2 {
+.header h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     color: #ffffff;
@@ -178,7 +178,7 @@
 
 
 /* Food Cards */
-    .food-section {
+.food-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -186,14 +186,19 @@
     padding: 50px 20px;
     }
 
-    .food-card-container {
+.food-card-container {
     perspective: 1000px;
     width: 360px;
     height: 620px;
     margin-bottom: 30px;
-    }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.food-card-container:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
 
-    .food-card {
+.food-card {
     position: relative;
     width: 100%;
     height: 100%;
@@ -202,11 +207,11 @@
     cursor: pointer;
     }
 
-    .food-card.flipped {
+.food-card.flipped {
     transform: rotateY(180deg);
     }
 
-    .food-card-front, .food-card-back {
+.food-card-front, .food-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -216,7 +221,7 @@
     overflow: hidden;
     }
 
-    .food-card-back {
+.food-card-back {
     background-color: #ffffff;
     transform: rotateY(180deg);
     display: flex;
@@ -227,19 +232,19 @@
     text-align: center;
     }
 
-    .food-card-front {
+.food-card-front {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     }
 
-    .food-card img.food-img {
+.food-card img.food-img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     }
 
-    .food-card-content {
+.food-card-content {
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
@@ -247,13 +252,13 @@
     flex: 1;
     }
 
-    .food-country {
+.food-country {
     display: flex;
     align-items: center;
     justify-content: center;
     }
 
-    .category {
+.category {
     text-align: center;
     font-size: 14px;
     font-weight: bold;
@@ -261,13 +266,13 @@
     margin-bottom: 5px;
     }
 
-    .food-card-content h5 {
+.food-card-content h5 {
     font-size: 18px;
     margin: 5px 0;
     text-align: center;
     }
 
-    .food-flag {
+.food-flag {
     width: 24px;
     height: 16px;
     margin: 0;
@@ -277,11 +282,11 @@
     vertical-align: middle;
     }
 
-    .food-country span {
+.food-country span {
     margin-left: 4px;
     }
 
-    .food-icons {
+.food-icons {
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
@@ -289,20 +294,20 @@
     gap: 5px;
     }
 
-    .food-icons img {
+.food-icons img {
     width: 20px;
     height: 20px;
     margin: 4px;
     }
 
-    .card-text {
+.card-text {
     font-size: 14px;
     color: #555;
     flex: 1;
     text-align: center;
     }
 
-    .explore-btn {
+.explore-btn {
     background-color: #ff6b35;
     color: white;
     border: none;
@@ -314,13 +319,13 @@
     transition: all 0.3s;
     }
 
-    .explore-btn:hover {
+.explore-btn:hover {
     background-color: #e85a2a;
     transform: scale(1.1);
     }
 
     /* Modal for detailed view */
-    .food-modal {
+.food-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -333,7 +338,7 @@
     padding: 20px;
     }
 
-    .modal-content {
+.modal-content {
     background-color: #fff;
     margin: 2% auto;
     padding: 30px;
@@ -343,7 +348,7 @@
     box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     }
 
-    .close-modal {
+.close-modal {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -352,72 +357,72 @@
     color: #aaa;
     }
 
-    .close-modal:hover {
+.close-modal:hover {
     color: #333;
     }
 
-    .modal-header {
+.modal-header {
     text-align: center;
     margin-bottom: 20px;
     }
 
-    .modal-image-container {
+.modal-image-container {
     text-align: center;
     margin-bottom: 25px;
     }
 
-    .modal-image {
+.modal-image {
     max-width: 100%;
     border-radius: 10px;
     max-height: 400px;
     object-fit: cover;
     }
 
-    .modal-details {
+.modal-details {
     width: 100%;
     }
 
-    .ingredients-list {
+.ingredients-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
     margin: 15px 0;
     }
 
-    .ingredient-item {
+.ingredient-item {
     display: flex;
     align-items: center;
     gap: 8px;
     }
 
-    .ingredient-item img {
+.ingredient-item img {
     width: 24px;
     height: 24px;
     }
 
-    /* Detail View Styles */
-    .description-header {
+/* Detail View Styles */
+.description-header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     justify-content: center;
     }
 
-    .description-header .label {
+.description-header .label {
     font-weight: bold;
     color: #ff6b35;
     }
 
-    .description-header .divider {
+.description-header .divider {
     margin: 0 10px;
     color: #ccc;
     }
 
-    .recipe-steps {
+.recipe-steps {
     margin-top: 15px;
     }
 
-    .step-number {
+.step-number {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -428,37 +433,37 @@
     margin-right: 10px;
     }
 
-    .review-section {
+.review-section {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #eee;
     }
 
-    .star-rating {
+.star-rating {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     margin: 10px 0;
     }
 
-    .star-rating input {
+.star-rating input {
     display: none;
     }
 
-    .star-rating label {
+.star-rating label {
     cursor: pointer;
     font-size: 24px;
     color: #ccc;
     transition: color 0.2s;
     }
 
-    .star-rating input:checked ~ label,
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
     color: #ffc107;
     }
 
-    .file-label {
+.file-label {
     display: inline-block;
     padding: 8px 15px;
     background-color: #f0f0f0;
@@ -467,7 +472,7 @@
     margin: 10px 0;
     }
 
-    .submit-btn {
+.submit-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -478,7 +483,7 @@
     margin: 15px auto;
     }
 
-    .back-btn {
+.back-btn {
     display: inline-block;
     padding: 8px 15px;
     background-color: #6c757d;
@@ -488,7 +493,7 @@
     margin-top: 20px;
     }
 
-    .video-container {
+.video-container {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
@@ -497,67 +502,117 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .video-container iframe {
+.video-container iframe {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     }
 
-    footer {
-    background: #333;
+/*Video Section */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 12px; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.video-container:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+
+
+/* Social media plugin and Footer Section */
+#social-media {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#social-media .btn {
+  border-radius: 50px;
+  padding: 10px;
+  font-weight: 500;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+#social-media .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+footer {
+    background: #333333ed;
     color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 3rem;
-    }
+    margin-top: 0;
+}
 
-    /* Centered layout for modal */
-    .centered-modal-content {
+
+/* Centered layout for modal */
+.centered-modal-content {
     text-align: center;
     }
     
-    .centered-modal-content .modal-image-container {
+.centered-modal-content .modal-image-container {
     margin: 0 auto 25px;
     }
     
-    .centered-modal-content .modal-details {
+.centered-modal-content .modal-details {
     text-align: left;
     max-width: 700px;
     margin: 0 auto;
     }
 
     /* Detail view specific styles */
-    .food-icons {
+.food-icons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 15px 0;
     }
     
-    .icon-item {
+.icon-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80px;
     }
     
-    .icon-item img {
+.icon-item img {
     width: 30px;
     height: 30px;
     margin-bottom: 5px;
     }
     
-    .icon-item span {
+.icon-item span {
     font-size: 12px;
     text-align: center;
     }
     
-    .recipe-steps p {
+.recipe-steps p {
     margin-bottom: 10px;
     }
 
     /* Review styles */
-    .rating-distribution {
+.rating-distribution {
     margin: 20px 0;
     }
 
@@ -574,18 +629,18 @@
     display: none;
     }
 
-    .review {
+.review {
     border-bottom: 1px solid #eee;
     padding: 15px 0;
     }
 
-    .review img {
+.review img {
     max-width: 100px;
     margin-top: 10px;
     border-radius: 5px;
     }
 
-    .translateBtn {
+.translateBtn {
     background-color: #4285f4;
     color: white;
     border: none;

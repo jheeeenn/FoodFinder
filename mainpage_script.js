@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial observation
   observeCards();
 
-  // 🔄 Re-run after refresh button generates new food cards
+  // Re-run after refresh button generates new food cards
   const refreshBtn = document.getElementById("refreshFoods");
   if (refreshBtn) {
     refreshBtn.addEventListener("click", () => {
