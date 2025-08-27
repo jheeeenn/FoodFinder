@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- Nav Bar -->
+  <nav class="nav-bar">
+    <div class="logo">FoodFinder</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="header">
+      <h1>Login</h1>
+      <p>Welcome back! Please login to your account.</p>
+    </div>
+    
+    <div class="form-container">
+      <div id="message" class="message"></div>
+      
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+        
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <i class="fas fa-lock password-toggle" onclick="togglePassword()"></i>
+        </div>
+        
+        <button type="submit" class="btn">LOGIN</button>
+      </form>
+      
+      <div class="divider">
+        <span>Or Sign In Using</span>
+      </div>
+      
+      <div class="social-login">
+        <div id="googleLoginBtn" class="social-btn google"><i class="fab fa-google"></i></div>
+      </div>
+      
+      <div class="register-section">
+        <p>Don't have an account?</p>
+        <button type="button" class="register-btn" onclick="showRegisterForm()">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+
+  <script>
+    // ===== Firebase Config (replace with your project values from Firebase Console) =====
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      appId: "YOUR_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // ===== Helpers =====
+    function showMessage(text, type="info") {
+      const messageEl = document.getElementById('message');
+      messageEl.textContent = text;
+      messageEl.className = `message ${type}`;
+      messageEl.style.display = 'block';
+      setTimeout(()=>{ messageEl.style.display='none'; }, 4000);
+    }
+
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const icon = document.querySelector('.password-toggle');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-lock');
+        icon.classList.add('fa-unlock');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-unlock');
+        icon.classList.add('fa-lock');
+      }
+    }
+
+    // ===== Login with Email/Password =====
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          const user = userCredential.user;
+          showMessage("Login successful! Welcome " + (user.email),'success');
+          setTimeout(()=>{ window.location.href='index.html'; }, 2000);
+        })
+        .catch(error => {
+          showMessage(error.message,'error');
+        });
+    });
+
+    // ===== Register Form =====
+    function showRegisterForm() {
+      const registerForm = `
+        <div class="input-group">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" placeholder="Enter your email" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="input-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" placeholder="Create a password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+        <button type="button" class="btn" onclick="registerUser()">REGISTER</button>
+        <button type="button" class="btn" style="background: #6c757d; margin-top: 10px;" onclick="showLoginForm()">BACK TO LOGIN</button>
+      `;
+      document.querySelector('.header h1').textContent = 'Register';
+      document.querySelector('.header p').textContent = 'Create a new account to get started.';
+      document.getElementById('loginForm').innerHTML = registerForm;
+      document.querySelector('.register-section').style.display='none';
+      document.querySelector('.social-login').style.display='none';
+      document.querySelectorAll('.divider').forEach(el=>el.style.display='none');
+    }
+
+    function showLoginForm() { window.location.reload(); }
+
+    function registerUser() {
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value.trim();
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          showMessage("Registration successful! Please login.",'success');
+          setTimeout(showLoginForm, 2000);
+        })
+        .catch(error => {
+          showMessage(error.message,'error');
+        });
+    }
+
+    // ===== Google Login =====
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    document.getElementById("googleLoginBtn").addEventListener("click", () => {
+      auth.signInWithPopup(googleProvider)
+        .then(result => {
+          const user = result.user;
+          showMessage("Logged in with Google: " + user.displayName,'success');
+          setTimeout(()=>{ window.location.href='index.html'; }, 2000);
+        })
+        .catch(error => {
+          showMessage(error.message,'error');
+        });
+    });
+
+    // ===== Auto-login if already signed in =====
+    auth.onAuthStateChanged(user => {
+      if(user){
+        showMessage("Welcome back " + (user.displayName || user.email),'success');
+      }
+    });
+  </script>
+</body>
+</html>
