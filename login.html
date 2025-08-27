@@ -69,203 +69,430 @@
         </div>
     </div>
 
+    <!-- Password Reset Modal -->
+<div id="passwordModal" class="password-modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closePasswordModal()">&times;</span>
+        <div class="modal-header">
+            <h2>Reset Your Password</h2>
+        </div>
+        <div id="modalMessage" class="message" style="display: none;"></div>
+        <div class="modal-input-group">
+            <label for="reset-username">Username</label>
+            <input type="text" id="reset-username" placeholder="Enter your username">
+        </div>
+        <div class="modal-input-group">
+            <label for="reset-password">New Password</label>
+            <input type="password" id="reset-password" placeholder="Enter new password (min 6 characters)">
+        </div>
+        <div class="modal-input-group">
+            <label for="reset-confirm-password">Confirm Password</label>
+            <input type="password" id="reset-confirm-password" placeholder="Confirm your new password">
+        </div>
+        <button type="button" class="modal-btn" onclick="resetPassword()">Reset Password</button>
+        <div class="modal-footer">
+            Remember your password? <a href="#" onclick="closePasswordModal(); showLoginForm();" style="color: #6a11cb;">Login here</a>
+        </div>
+    </div>
+</div>
+
     <script>
-        // ===== Password toggle =====
-        function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const icon = document.querySelector('.password-toggle');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-lock');
-                icon.classList.add('fa-unlock');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-unlock');
-                icon.classList.add('fa-lock');
-            }
-        }
-
-        // ===== LocalStorage helpers =====
-        function getUsers() {
-            return JSON.parse(localStorage.getItem('users')) || [];
-        }
-
-        function saveUsers(users) {
-            localStorage.setItem('users', JSON.stringify(users));
-        }
-
-        function showMessage(text, type) {
-            const messageEl = document.getElementById('message');
-            messageEl.textContent = text;
-            messageEl.className = `message ${type}`;
-            messageEl.style.display = 'block';
-            setTimeout(()=>{ messageEl.style.display='none'; }, 4000);
-        }
-
-        // ===== Show register form =====
-        function showRegisterForm() {
-            const registerForm = `
-                <div class="input-group">
-                    <label for="reg-username">Username</label>
-                    <input type="text" id="reg-username" placeholder="Choose a username" required>
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="input-group">
-                    <label for="reg-email">Email</label>
-                    <input type="email" id="reg-email" placeholder="Enter your email" required>
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="input-group">
-                    <label for="reg-password">Password</label>
-                    <input type="password" id="reg-password" placeholder="Create a password" required>
-                    <i class="fas fa-lock password-toggle" onclick="toggleRegisterPassword()"></i>
-                </div>
-                <div class="input-group">
-                    <label for="reg-confirm-password">Confirm Password</label>
-                    <input type="password" id="reg-confirm-password" placeholder="Confirm your password" required>
-                    <i class="fas fa-lock"></i>
-                </div>
-                <button type="button" class="btn" onclick="registerUser()">REGISTER</button>
-                <button type="button" class="btn" style="background: #6c757d; margin-top: 10px;" onclick="showLoginForm()">BACK TO LOGIN</button>
-            `;
-            document.querySelector('.header h1').textContent = 'Register';
-            document.querySelector('.header p').textContent = 'Create a new account to get started.';
-            document.getElementById('loginForm').innerHTML = registerForm;
-            document.querySelector('.register-section').style.display='none';
-            document.querySelector('.social-login').style.display='none';
-            document.querySelectorAll('.divider').forEach(el=>el.style.display='none');
-        }
-
-        function showLoginForm() { window.location.reload(); }
-
-        function toggleRegisterPassword() {
-            const passwordInput = document.getElementById('reg-password');
-            const icon = document.querySelectorAll('.password-toggle')[1];
-            if (passwordInput.type === 'password') {
-                passwordInput.type='text'; icon.classList.remove('fa-lock'); icon.classList.add('fa-unlock');
-            } else {
-                passwordInput.type='password'; icon.classList.remove('fa-unlock'); icon.classList.add('fa-lock');
-            }
-        }
-
-        // ===== Register user =====
-        function registerUser() {
-            const username = document.getElementById('reg-username').value.trim();
-            const email = document.getElementById('reg-email').value.trim();
-            const password = document.getElementById('reg-password').value.trim();
-            const confirmPassword = document.getElementById('reg-confirm-password').value.trim();
-
-            if (!username || !email || !password || !confirmPassword) 
-            { 
-                showMessage('Please fill in all fields','error'); 
-                return; 
-            }
-
-            if (password!==confirmPassword) 
-            { 
-                showMessage('Passwords do not match','error'); 
-                return; 
-            }
-
-            if (password.length<6) 
-            { 
-                showMessage('Password must be at least 6 characters','error'); 
-                return; 
-            }
-
-            let users = getUsers();
-            if(users.some(u=>u.username===username))
-            { 
-                showMessage('Username already registered. Please login.','error'); 
-                return; 
-            }
-
-            users.push({username,email,password});
-            saveUsers(users);
-            showMessage('Registration successful! Please login.','success');
-            setTimeout(showLoginForm,2000);
-        }
-
-        // ===== Forgot password =====
-        function forgotPassword() {
-            const username = prompt('Enter your username:');
-            if (!username) return;
-
-            let users = getUsers();
-            const user = users.find(u=>u.username===username);
-
-            if (!user) { 
-                showMessage('Username not found!','error'); 
-                return; 
-            }
-
-            const newPass = prompt('Enter new password (min 6 characters):');
-
-            if (!newPass || newPass.length<6) 
-            { 
-                showMessage('Password must be at least 6 characters','error'); 
-                return; 
-            }
-
-            user.password = newPass;
-            saveUsers(users);
-            showMessage('Password reset successful! Please login.','success');
-        }
-
-        // ===== Login =====
-        document.getElementById('loginForm').addEventListener('submit',function(e){
-            e.preventDefault();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
-
-            if(!username || !password)
-            { 
-                showMessage('Please enter username and password','error'); 
-                return;
-             }
-
-            const users = getUsers();
-            const user = users.find(u=>u.username===username && u.password===password);
-
-            if(user){
-                localStorage.setItem('loggedInUser', JSON.stringify(user));
-                showMessage('Login successful! Welcome '+username,'success');
-                setTimeout(()=>{
-                    showMessage('Redirecting to homepage...','success');
-                        }, 2500);
-                setTimeout(()=>{
-                     window.location.href='index.html';
-                     }, 5000);
-            }
-            else showMessage('Invalid username or password','error');
+    // ===== Review Storage System =====
+    function storeReviewBeforeLogin(reviewData) {
+        // Get any existing pending reviews
+        let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+        
+        // Add the new review with a timestamp
+        pendingReviews.push({
+            ...reviewData,
+            timestamp: new Date().toISOString(),
+            saved: false // Flag to track if this has been saved to user account
         });
+        
+        // Save back to localStorage
+        localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+        
+        // Show message to user
+        showMessage('Your review has been stored. Please login to save it permanently.', 'info');
+    }
 
-        // ===== Fake Social Logins =====
-        document.querySelector('.social-btn.facebook').onclick = ()=>{
-            let user = {username:"FacebookUser", email:"fb@example.com", password:"social"};
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            showMessage("Logged in with Facebook",'success');
-        };
-        document.querySelector('.social-btn.google').onclick = ()=>{
-            let user = {username:"GoogleUser", email:"google@example.com", password:"social"};
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            showMessage("Logged in with Google",'success');
-        };
-        document.querySelector('.social-btn.twitter').onclick = ()=>{
-            let user = {username:"TwitterUser", email:"twitter@example.com", password:"social"};
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            showMessage("Logged in with Twitter",'success');
-        };
+    function savePendingReviewsToUser(username) {
+        // Get pending reviews from storage
+        let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+        
+        if (pendingReviews.length === 0) return;
+        
+        // Get user data
+        let users = getUsers();
+        let userIndex = users.findIndex(u => u.username === username);
+        
+        if (userIndex === -1) return;
+        
+        // Initialize user reviews array if it doesn't exist
+        if (!users[userIndex].reviews) {
+            users[userIndex].reviews = [];
+        }
+        
+        // Filter reviews that haven't been saved yet
+        const unsavedReviews = pendingReviews.filter(review => !review.saved);
+        
+        if (unsavedReviews.length === 0) return;
+        
+        // Add pending reviews to user's account
+        users[userIndex].reviews = [...users[userIndex].reviews, ...unsavedReviews];
+        
+        // Mark reviews as saved in pending storage
+        pendingReviews = pendingReviews.map(review => ({
+            ...review,
+            saved: true
+        }));
+        
+        // Update storage
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+        
+        // Show confirmation message
+        showMessage(`${unsavedReviews.length} pending review(s) have been saved to your account!`, 'success');
+    }
 
-        // Auto welcome if already logged in
-        window.onload=function(){
-            const loggedIn = localStorage.getItem('loggedInUser');
-            if(loggedIn){
-                const user = JSON.parse(loggedIn);
-                document.getElementById('username').value=user.username;
-                showMessage('Welcome back '+user.username+'!','success');
+    function clearSavedPendingReviews() {
+        // Remove only reviews that have been saved
+        let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+        pendingReviews = pendingReviews.filter(review => !review.saved);
+        localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    }
+
+    function getPendingReviewsCount() {
+        const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+        const unsavedReviews = pendingReviews.filter(review => !review.saved);
+        return unsavedReviews.length;
+    }
+
+    // ===== Password toggle =====
+    function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const icon = document.querySelector('.password-toggle');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-lock');
+            icon.classList.add('fa-unlock');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-unlock');
+            icon.classList.add('fa-lock');
+        }
+    }
+
+    // ===== LocalStorage helpers =====
+    function getUsers() {
+        return JSON.parse(localStorage.getItem('users')) || [];
+    }
+
+    function saveUsers(users) {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    function showMessage(text, type) {
+        const messageEl = document.getElementById('message');
+        messageEl.textContent = text;
+        messageEl.className = `message ${type}`;
+        messageEl.style.display = 'block';
+        setTimeout(()=>{ messageEl.style.display='none'; }, 4000);
+    }
+
+    // ===== Show register form =====
+    function showRegisterForm() {
+        const registerForm = `
+            <div class="input-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" placeholder="Choose a username" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" placeholder="Enter your email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" placeholder="Create a password" required>
+                <i class="fas fa-lock password-toggle" onclick="toggleRegisterPassword()"></i>
+            </div>
+            <div class="input-group">
+                <label for="reg-confirm-password">Confirm Password</label>
+                <input type="password" id="reg-confirm-password" placeholder="Confirm your password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <button type="button" class="btn" onclick="registerUser()">REGISTER</button>
+            <button type="button" class="btn" style="background: #6c757d; margin-top: 10px;" onclick="showLoginForm()">BACK TO LOGIN</button>
+        `;
+        document.querySelector('.header h1').textContent = 'Register';
+        document.querySelector('.header p').textContent = 'Create a new account to get started.';
+        document.getElementById('loginForm').innerHTML = registerForm;
+        document.querySelector('.register-section').style.display='none';
+        document.querySelector('.social-login').style.display='none';
+        document.querySelectorAll('.divider').forEach(el=>el.style.display='none');
+    }
+
+    function showLoginForm() { 
+        window.location.reload(); 
+    }
+
+    function toggleRegisterPassword() {
+        const passwordInput = document.getElementById('reg-password');
+        const icon = document.querySelectorAll('.password-toggle')[1];
+        if (passwordInput.type === 'password') {
+            passwordInput.type='text'; icon.classList.remove('fa-lock'); icon.classList.add('fa-unlock');
+        } else {
+            passwordInput.type='password'; icon.classList.remove('fa-unlock'); icon.classList.add('fa-lock');
+        }
+    }
+
+    // ===== Register user =====
+    function registerUser() {
+        const username = document.getElementById('reg-username').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const password = document.getElementById('reg-password').value.trim();
+        const confirmPassword = document.getElementById('reg-confirm-password').value.trim();
+
+        if (!username || !email || !password || !confirmPassword) 
+        { 
+            showMessage('Please fill in all fields','error'); 
+            return; 
+        }
+
+        if (password!==confirmPassword) 
+        { 
+            showMessage('Passwords do not match','error'); 
+            return; 
+        }
+
+        if (password.length<6) 
+        { 
+            showMessage('Password must be at least 6 characters','error'); 
+            return; 
+        }
+
+        let users = getUsers();
+        if(users.some(u=>u.username===username))
+        { 
+            showMessage('Username already registered. Please login.','error'); 
+            return; 
+        }
+
+        users.push({username,email,password});
+        saveUsers(users);
+        showMessage('Registration successful! Please login.','success');
+        
+        // Check if there are pending reviews for this user (by email)
+        const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+        const userPendingReviews = pendingReviews.filter(review => 
+            review.userEmail === email && !review.saved
+        );
+        
+        if (userPendingReviews.length > 0) {
+            showMessage(`You have ${userPendingReviews.length} review(s) waiting to be saved. Login to save them.`, 'info');
+        }
+        
+        setTimeout(showLoginForm,2000);
+    }
+
+    // ===== Forgot password =====
+function forgotPassword() {
+    // Show the modal instead of using prompt
+    document.getElementById('passwordModal').style.display = 'flex';
+    // Clear previous inputs and messages
+    document.getElementById('reset-username').value = '';
+    document.getElementById('reset-password').value = '';
+    document.getElementById('reset-confirm-password').value = '';
+    document.getElementById('modalMessage').style.display = 'none';
+}
+
+function closePasswordModal() {
+    document.getElementById('passwordModal').style.display = 'none';
+}
+
+function resetPassword() {
+    const username = document.getElementById('reset-username').value.trim();
+    const password = document.getElementById('reset-password').value.trim();
+    const confirmPassword = document.getElementById('reset-confirm-password').value.trim();
+    const messageEl = document.getElementById('modalMessage');
+
+    // Validation
+    if (!username) {
+        showModalMessage('Please enter your username', 'error');
+        return;
+    }
+
+    if (!password || password.length < 6) {
+        showModalMessage('Password must be at least 6 characters', 'error');
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        showModalMessage('Passwords do not match', 'error');
+        return;
+    }
+
+    let users = getUsers();
+    const userIndex = users.findIndex(u => u.username === username);
+
+    if (userIndex === -1) {
+        showModalMessage('Username not found!', 'error');
+        return;
+    }
+
+    // Update password
+    users[userIndex].password = password;
+    saveUsers(users);
+    
+    showModalMessage('Password reset successful! You can now login with your new password.', 'success');
+    
+    // Close modal after 2 seconds
+    setTimeout(() => {
+        closePasswordModal();
+        showMessage('Password reset successful! Please login.', 'success');
+    }, 2000);
+}
+
+function showModalMessage(text, type) {
+    const messageEl = document.getElementById('modalMessage');
+    messageEl.textContent = text;
+    messageEl.className = `message ${type}`;
+    messageEl.style.display = 'block';
+}
+    // ===== Login =====
+    document.getElementById('loginForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if(!username || !password)
+        { 
+            showMessage('Please enter username and password','error'); 
+            return;
+         }
+
+        const users = getUsers();
+        const user = users.find(u=>u.username===username && u.password===password);
+
+        if(user){
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            
+            // Save any pending reviews to the user's account
+            savePendingReviewsToUser(username);
+            
+            showMessage('Login successful! Welcome '+username,'success');
+            
+            // Check if we need to redirect to a specific page
+            const redirectUrl = localStorage.getItem('redirectAfterLogin');
+            
+            setTimeout(() => {
+                if (redirectUrl) {
+                    // Clear the stored URL and redirect
+                    localStorage.removeItem('redirectAfterLogin');
+                    window.location.href = redirectUrl;
+                } else {
+                    // Default behavior - go to homepage
+                    window.location.href = 'index.html';
+                }
+            }, 1500);
+        }
+        else showMessage('Invalid username or password','error');
+    });
+
+    // ===== Fake Social Logins =====
+    document.querySelector('.social-btn.facebook').onclick = ()=>{
+        let user = {username:"FacebookUser", email:"fb@example.com", password:"social"};
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        
+        // Save any pending reviews to this social account
+        savePendingReviewsToUser("FacebookUser");
+        
+        // Check for redirect URL
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        showMessage("Logged in with Facebook",'success');
+        
+        setTimeout(() => {
+            if (redirectUrl) {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
+            } else {
+                window.location.href = 'index.html';
             }
-        };
-    </script>
+        }, 1500);
+    };
+    
+    document.querySelector('.social-btn.google').onclick = ()=>{
+        let user = {username:"GoogleUser", email:"google@example.com", password:"social"};
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        
+        // Save any pending reviews to this social account
+        savePendingReviewsToUser("GoogleUser");
+        
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        showMessage("Logged in with Google",'success');
+        
+        setTimeout(() => {
+            if (redirectUrl) {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
+            } else {
+                window.location.href = 'index.html';
+            }
+        }, 1500);
+    };
+    
+    document.querySelector('.social-btn.twitter').onclick = ()=>{
+        let user = {username:"TwitterUser", email:"twitter@example.com", password:"social"};
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        
+        // Save any pending reviews to this social account
+        savePendingReviewsToUser("TwitterUser");
+        
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        showMessage("Logged in with Twitter",'success');
+        
+        setTimeout(() => {
+            if (redirectUrl) {
+                localStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectUrl;
+            } else {
+                window.location.href = 'index.html';
+            }
+        }, 1500);
+    };
+
+    // Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('passwordModal');
+    if (event.target === modal) {
+        closePasswordModal();
+    }
+};
+
+// Add Enter key support for the modal inputs
+document.getElementById('reset-confirm-password').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        resetPassword();
+    }
+});
+
+    // Auto welcome if already logged in
+    window.onload=function(){
+        const loggedIn = localStorage.getItem('loggedInUser');
+        if(loggedIn){
+            const user = JSON.parse(loggedIn);
+            document.getElementById('username').value=user.username;
+            showMessage('Welcome back '+user.username+'!','success');
+        }
+        
+        // Show notification if there are pending reviews
+        const pendingCount = getPendingReviewsCount();
+        if (pendingCount > 0) {
+            showMessage(`You have ${pendingCount} unsaved review(s). Login to save them.`, 'info');
+        }
+    };
+</script>
 </body>
 </html>
