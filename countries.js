@@ -1,11 +1,11 @@
- // Food data
+Food data
     const foodData = {
       /* US Food Data */
       'corndog': {
         name: 'Corn Dog',
         country: 'United States',
         flag: 'https://flagcdn.com/w320/us.png',
-        image: 'multimedia_content/images/corndog.jpg',
+        image: 'multimedia_content/images/corndog.jpg ',
         category: 'Snack',
         description: "The corn dog is a popular American snack that originated in the early 20th century. It consists of a hot dog sausage coated in a thick layer of cornmeal batter, which is then deep-fried to a golden brown. The exact origins of the corn dog are debated, but it is widely believed to have been invented at state fairs and carnivals in the United States during the 1920s and 1930s. The corn dog quickly gained popularity due to its convenient handheld format and delicious combination of savory sausage and crispy cornmeal coating. Today, corn dogs are a beloved treat enjoyed at fairs, sporting events, and fast-food establishments across the country.",
         ingredients: [
@@ -20,7 +20,7 @@
           { name: 'Sugar', icon: 'multimedia_content/images/sugar.jpg' }
         ],
         recipe: [
-          'Preheat oil in a deep fryer or large pot to 175°C (350°F).',
+          'Preheat oil in a deep fryer or large pot to 175Â°C (350Â°F).',
           'In a mixing bowl, combine cornmeal, flour, sugar, baking powder, and salt.',
           'In a separate bowl, whisk together milk and eggs.',
           'Pour the wet ingredients into the dry ingredients and mix until just combined. The batter should be thick.',
@@ -38,7 +38,7 @@
         flag: 'https://flagcdn.com/w320/us.png',
         image: 'multimedia_content/images/chicagohotdog.jpg',
         category: 'Snack',
-        description: "The Chicago-style hot dog is an iconic American street food that originated during the Great Depression as an affordable, filling meal. Served on a steamed poppy seed bun, it features an all-beef hot dog topped with yellow mustard, neon-green relish, chopped onions, tomato wedges, a pickle spear, spicy sport peppers, and a sprinkle of celery salt—never ketchup. Known as being 'dragged through the garden,' it reflects Chicago’s immigrant influences and remains a beloved symbol of the city’s food culture.",
+        description: "The Chicago-style hot dog is an iconic American street food that originated during the Great Depression as an affordable, filling meal. Served on a steamed poppy seed bun, it features an all-beef hot dog topped with yellow mustard, neon-green relish, chopped onions, tomato wedges, a pickle spear, spicy sport peppers, and a sprinkle of celery saltânever ketchup. Known as being 'dragged through the garden,' it reflects Chicagoâs immigrant influences and remains a beloved symbol of the cityâs food culture.",
 
         ingredients: [
           { name: 'All-Beef Hot Dog', icon: 'multimedia_content/images/hotdog.png' },
@@ -58,7 +58,7 @@
           'Add tomato wedges on one side and a pickle spear on the other.',
           'Place two spicy sport peppers on top.',
           'Finish with a light sprinkle of celery salt.',
-          'Serve hot — and remember, never add ketchup!'
+          'Serve hot â and remember, never add ketchup!'
         ]
       },
 
@@ -68,7 +68,7 @@
         flag: 'https://flagcdn.com/w320/us.png',
         image: 'multimedia_content/images/newyorkstylepizza.jpg',
         category: 'Pizza',
-        description: "New York-style pizza is famous for its thin, foldable crust with a crisp edge and chewy base. Typically topped with tomato sauce, mozzarella, and oregano, it’s baked in high-heat ovens and served by the slice. Beloved for its convenience and flavor, it has become a global symbol of New York City street food.",
+        description: "New York-style pizza is famous for its thin, foldable crust with a crisp edge and chewy base. Typically topped with tomato sauce, mozzarella, and oregano, itâs baked in high-heat ovens and served by the slice. Beloved for its convenience and flavor, it has become a global symbol of New York City street food.",
         
         ingredients: [
           { name: 'Pizza Dough', icon: 'multimedia_content/images/flour.png' },
@@ -104,7 +104,7 @@
         ],
         recipe: [
           'Season the brisket with a dry rub of salt, pepper, and spices.',
-          'Smoke the brisket low and slow over wood for 10–12 hours until tender.',
+          'Smoke the brisket low and slow over wood for 10â12 hours until tender.',
           'Slice the brisket thinly across the grain.',
           'Place brisket slices on a soft bun.',
           'Top with BBQ sauce, onions, and pickles.',
@@ -133,7 +133,7 @@
           'In a large bowl, combine warm water, sugar, and yeast. Let it sit for 5-10 minutes until frothy.',
           'Add flour, salt, and melted butter to the yeast mixture. Knead the dough until smooth and elastic, about 5-7 minutes.',
           'Place the dough in a greased bowl, cover with a damp cloth, and let it rise in a warm place for about 1 hour or until doubled in size.',
-          'Preheat the oven to 230°C (450°F). Line a baking sheet with parchment paper.',
+          'Preheat the oven to 230Â°C (450Â°F). Line a baking sheet with parchment paper.',
           'Divide the dough into equal portions and roll each portion into a long rope. Shape each rope into a pretzel shape.',
           'Bring a large pot of water to a boil and add baking soda. Boil each pretzel for about 30 seconds on each side, then remove with a slotted spoon and place on the prepared baking sheet.',
           'Brush the pretzels with beaten egg and sprinkle with coarse salt.',
@@ -170,7 +170,7 @@
         flag: 'https://flagcdn.com/w320/de.png',
         image: 'multimedia_content/images/currywurst.jpg',
         category: 'Sausage Dish',
-        description: "Currywurst is one of Germany’s most famous street foods, consisting of sliced sausage topped with a tangy tomato-based sauce and dusted with curry powder. First created in Berlin in 1949, it has become a beloved snack often served with fries or bread rolls.",
+        description: "Currywurst is one of Germanyâs most famous street foods, consisting of sliced sausage topped with a tangy tomato-based sauce and dusted with curry powder. First created in Berlin in 1949, it has become a beloved snack often served with fries or bread rolls.",
         
         ingredients: [
           { name: 'Pork Sausage', icon: 'multimedia_content/images/meat.png' },
@@ -186,12 +186,12 @@
       },
 
       'fischbrotchen': {
-        name: 'Fischbrötchen',
+        name: 'FischbrÃ¶tchen',
         country: 'Germany',
         flag: 'https://flagcdn.com/w320/de.png',
         image: 'multimedia_content/images/fischbrotchen.jpg',
         category: 'Seafood Sandwich',
-        description: "Fischbrötchen is a northern German street food classic, consisting of a crusty bread roll filled with fresh or pickled fish such as herring, mackerel, or salmon. Typically garnished with onions, lettuce, and pickles, it is especially popular in coastal regions and at seaside markets.",
+        description: "FischbrÃ¶tchen is a northern German street food classic, consisting of a crusty bread roll filled with fresh or pickled fish such as herring, mackerel, or salmon. Typically garnished with onions, lettuce, and pickles, it is especially popular in coastal regions and at seaside markets.",
         
         ingredients: [
           { name: 'Herring or Mackerel', icon: 'multimedia_content/images/fish.png' },
@@ -237,11 +237,11 @@
         recipe: [
           'Place noodles in a large bowl, pour over boiling water. Soak 5 minutes, then drain.',
           'Mix Sauce: tamarind puree, brown sugar, fish sauce, oyster sauce.',
-          'Heat oil in a pan over high heat, add garlic and onion 🧅, cook 30s.',
-          'Add chicken, cook 1½ mins, push aside. Pour in eggs 🥚, scramble, then mix with chicken.',
-          'Add bean sprouts, tofu, noodles, then pour in Sauce. Toss 1½ mins until absorbed.',
-          'Add garlic chives and half the peanuts 🥜. Toss, remove from heat.',
-          'Serve immediately with remaining peanuts, lime wedges, chilli 🌶️, and extra bean sprouts.'
+          'Heat oil in a pan over high heat, add garlic and onion ð§, cook 30s.',
+          'Add chicken, cook 1Â½ mins, push aside. Pour in eggs ð¥, scramble, then mix with chicken.',
+          'Add bean sprouts, tofu, noodles, then pour in Sauce. Toss 1Â½ mins until absorbed.',
+          'Add garlic chives and half the peanuts ð¥. Toss, remove from heat.',
+          'Serve immediately with remaining peanuts, lime wedges, chilli ð¶ï¸, and extra bean sprouts.'
         ]
       },
       'tom-yum-goong': {
@@ -349,12 +349,12 @@
       },
        // Food data for Turkey
       'doner-kebab': {
-        name: 'Döner Kebab',
+        name: 'DÃ¶ner Kebab',
         country: 'Turkey',
         flag: 'https://flagcdn.com/w320/tr.png',
         image: 'multimedia_content/images/donerkebab.png',
         category: 'Meat',
-        description: 'Döner kebab was invented in the 19th century in the Ottoman Empire, with its modern form developing in the 1970s in Berlin, Germany, by Turkish immigrants. It consists of meat stacked in an inverted cone which is turned slowly on a vertical rotisserie next to a vertical cooking element. The outer layer is sliced into thin shavings as it cooks, typically served in a wrap or on a plate with rice and vegetables.',
+        description: 'DÃ¶ner kebab was invented in the 19th century in the Ottoman Empire, with its modern form developing in the 1970s in Berlin, Germany, by Turkish immigrants. It consists of meat stacked in an inverted cone which is turned slowly on a vertical rotisserie next to a vertical cooking element. The outer layer is sliced into thin shavings as it cooks, typically served in a wrap or on a plate with rice and vegetables.',
         ingredients: [
           { name: 'Lamb', icon: 'multimedia_content/images/lamb.png' },
           { name: 'Bread', icon: 'multimedia_content/images/bread.png' },
@@ -444,12 +444,12 @@
         ]
       },
       'borek': {
-        name: 'Börek',
+        name: 'BÃ¶rek',
         country: 'Turkey',
         flag: 'https://flagcdn.com/w320/tr.png',
         image: 'multimedia_content/images/borek.png',
         category: 'Pastry',
-        description: 'Börek is a family of baked filled pastries made of a thin flaky dough such as phyllo. It can be filled with cheese, minced meat, vegetables, or potatoes.',
+        description: 'BÃ¶rek is a family of baked filled pastries made of a thin flaky dough such as phyllo. It can be filled with cheese, minced meat, vegetables, or potatoes.',
         ingredients: [
           { name: 'Phyllo Dough', icon: 'multimedia_content/images/phyllodough.png' },
           { name: 'Cheese', icon: 'multimedia_content/images/cheese.png' },
@@ -474,7 +474,7 @@
         flag: 'https://flagcdn.com/w320/jp.png',
         image: 'multimedia_content/images/okonomiyaki.jpg', 
         category: 'Savory Pancake',
-        description: "Okonomiyaki is a beloved Japanese street food often described as a savory pancake or 'Japanese pizza.' Its name comes from 'okonomi,' meaning 'as you like,' and 'yaki,' meaning 'grilled,' reflecting the dish’s versatility in ingredients and toppings. Typically made from a batter of flour, eggs, shredded cabbage, and grated yam, it can include additions like pork belly, shrimp, or squid. Cooked on a teppan (iron griddle), it is commonly topped with tangy okonomiyaki sauce, creamy Japanese mayonnaise, dried bonito flakes, and seaweed powder. Regional variations are popular, with Osaka-style mixing ingredients into the batter and Hiroshima-style layering noodles and toppings. Okonomiyaki has become an iconic comfort food in Japan, celebrated for its rich flavors and customizable nature.",
+        description: "Okonomiyaki is a beloved Japanese street food often described as a savory pancake or 'Japanese pizza.' Its name comes from 'okonomi,' meaning 'as you like,' and 'yaki,' meaning 'grilled,' reflecting the dishâs versatility in ingredients and toppings. Typically made from a batter of flour, eggs, shredded cabbage, and grated yam, it can include additions like pork belly, shrimp, or squid. Cooked on a teppan (iron griddle), it is commonly topped with tangy okonomiyaki sauce, creamy Japanese mayonnaise, dried bonito flakes, and seaweed powder. Regional variations are popular, with Osaka-style mixing ingredients into the batter and Hiroshima-style layering noodles and toppings. Okonomiyaki has become an iconic comfort food in Japan, celebrated for its rich flavors and customizable nature.",
 
         ingredients: [
           { name: 'Flour', icon: 'multimedia_content/images/flour.png' },
@@ -502,7 +502,7 @@
         flag: 'https://flagcdn.com/w320/jp.png',
         image: 'multimedia_content/images/daifukumochi.jpg', 
         category: 'Dessert',
-        description: "Daifuku Mochi is a traditional Japanese confection consisting of a soft, chewy outer layer of glutinous rice flour dough filled with a sweet filling, most commonly red bean paste. The name 'daifuku' means 'great luck,' and the treat is often enjoyed during celebrations and festivals as a symbol of good fortune. With its delicate texture and balanced sweetness, Daifuku Mochi has become one of Japan’s most popular wagashi (traditional sweets). Variations include fillings like strawberries, matcha cream, or ice cream, making it a versatile and beloved dessert enjoyed worldwide.",
+        description: "Daifuku Mochi is a traditional Japanese confection consisting of a soft, chewy outer layer of glutinous rice flour dough filled with a sweet filling, most commonly red bean paste. The name 'daifuku' means 'great luck,' and the treat is often enjoyed during celebrations and festivals as a symbol of good fortune. With its delicate texture and balanced sweetness, Daifuku Mochi has become one of Japanâs most popular wagashi (traditional sweets). Variations include fillings like strawberries, matcha cream, or ice cream, making it a versatile and beloved dessert enjoyed worldwide.",
 
         ingredients: [
           { name: 'Glutinous Rice Flour', icon: 'multimedia_content/images/flour.png' },
@@ -598,7 +598,7 @@
           'Clean and prepare the crayfish thoroughly.',
           'Heat oil in a large wok and stir-fry garlic, ginger, chili peppers, and Sichuan peppercorns until fragrant.',
           'Add crayfish and stir-fry until shells turn red.',
-          'Pour in beer and soy sauce, cover, and simmer for 10–15 minutes.',
+          'Pour in beer and soy sauce, cover, and simmer for 10â15 minutes.',
           'Reduce the sauce until slightly thickened, coating the crayfish.',
           'Serve hot, with plenty of napkins and cold drinks.'
         ]
@@ -610,7 +610,7 @@
         flag: 'https://flagcdn.com/w320/cn.png',
         image: 'multimedia_content/images/jianbing.jpg',
         category: 'Breakfast',
-        description: "Jianbing is one of China’s most popular breakfast street foods, often described as a Chinese crepe. Made with a thin batter of wheat and mung bean flour cooked on a griddle, it is topped with eggs, scallions, cilantro, and a crispy fried cracker. Finished with savory sauces like hoisin and chili paste, Jianbing is folded up for an easy grab-and-go meal. Portable, flavorful, and customizable, Jianbing is a staple of morning street life in Chinese cities.",
+        description: "Jianbing is one of Chinaâs most popular breakfast street foods, often described as a Chinese crepe. Made with a thin batter of wheat and mung bean flour cooked on a griddle, it is topped with eggs, scallions, cilantro, and a crispy fried cracker. Finished with savory sauces like hoisin and chili paste, Jianbing is folded up for an easy grab-and-go meal. Portable, flavorful, and customizable, Jianbing is a staple of morning street life in Chinese cities.",
 
         ingredients: [
           { name: 'Wheat Flour', icon: 'multimedia_content/images/flour.png' },
@@ -688,7 +688,7 @@
         flag: 'https://flagcdn.com/w320/my.png', 
         image: 'multimedia_content/images/nasilemak.png',
         category: 'Rice',
-        description: 'Nasi Lemak is Malaysia’s national dish, often eaten for breakfast. It consists of fragrant rice cooked in coconut milk, served with sambal (spicy chili paste), fried crispy anchovies, roasted peanuts, boiled egg, and cucumber slices. Sometimes it comes with fried chicken or rendang.',
+        description: 'Nasi Lemak is Malaysiaâs national dish, often eaten for breakfast. It consists of fragrant rice cooked in coconut milk, served with sambal (spicy chili paste), fried crispy anchovies, roasted peanuts, boiled egg, and cucumber slices. Sometimes it comes with fried chicken or rendang.',
         ingredients: [
           { name: 'Rice', icon: 'multimedia_content/images/rice.png' },
           { name: 'Coconut Milk', icon: 'multimedia_content/images/coconut.png' },
@@ -714,7 +714,7 @@
         flag: 'https://flagcdn.com/w320/my.png', 
         image: 'multimedia_content/images/charkwayteow.png',
         category: 'Noodles',
-        description: 'Char Kway Teow is a famous Malaysian stir-fried flat rice noodle dish. It is cooked over high heat with prawns, cockles, Chinese sausage, eggs, bean sprouts, and chives, giving it the distinct smoky flavor known as “wok hei.”',
+        description: 'Char Kway Teow is a famous Malaysian stir-fried flat rice noodle dish. It is cooked over high heat with prawns, cockles, Chinese sausage, eggs, bean sprouts, and chives, giving it the distinct smoky flavor known as âwok hei.â',
         ingredients: [
           { name: 'Flat Rice Noodles', icon: 'multimedia_content/images/noodle.png' },
           { name: 'Prawns', icon: 'multimedia_content/images/shrimp.png' },
@@ -871,233 +871,365 @@
   
     };
 
-    // Review system
-    let reviews = {};
-    let ratingChart = null;
-
-    // Initialize reviews for each food item
-    Object.keys(foodData).forEach(foodId => {
-      reviews[foodId] = [];
-    });
-
-    // Flip card function
-    function flipCard(card) {
-      card.classList.toggle('flipped');
+   // Review system
+let reviews = {};
+let ratingChart = null;
+// Show login prompt
+function showLoginPrompt() {
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  `;
+  
+  // Create modal content
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  `;
+  
+  modal.innerHTML = `
+    <h3 style="margin-top: 0; color: #333;">Login Required</h3>
+    <p style="margin-bottom: 20px; color: #666;">You need to be logged in to submit feedback.</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+      <button id="goToLoginBtn" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Go to Login Page
+      </button>
+      <button id="cancelLoginBtn" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Cancel
+      </button>
+    </div>
+    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
+      <p style="font-size: 14px; color: #888;">
+        <strong>Storage Information:</strong> Your feedback is stored locally in your browser's storage. 
+        Currently storing ${getPendingReviewsCount()} pending review(s).
+      </p>
+    </div>
+  `;
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  
+  // Add event listeners
+  document.getElementById('goToLoginBtn').addEventListener('click', function() {
+    // Store the current page URL to return after login
+    localStorage.setItem('redirectAfterLogin', window.location.href);
+    window.location.href = 'login.html';
+  });
+  
+  document.getElementById('cancelLoginBtn').addEventListener('click', function() {
+    document.body.removeChild(overlay);
+  });
+  
+  // Close modal when clicking outside
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      document.body.removeChild(overlay);
     }
+  });
+}
 
-    // Show food detail modal
-    function showFoodDetail(foodId) {
-      const food = foodData[foodId];
-      if (!food) return;
-      
-      document.getElementById('modalFoodName').textContent = food.name;
-      document.getElementById('modalFoodFlag').src = food.flag;
-      document.getElementById('modalFoodCountry').textContent = food.country;
-      document.getElementById('modalFoodImage').src = food.image;
-      document.getElementById('modalDescription').textContent = food.description;
-      
-      // Populate ingredients
-      const ingredientsContainer = document.getElementById('modalIngredients');
-      ingredientsContainer.innerHTML = '';
-      food.ingredients.forEach(ingredient => {
-        const ingredientItem = document.createElement('div');
-        ingredientItem.className = 'icon-item';
-        ingredientItem.innerHTML = `
-          <img src="${ingredient.icon}" alt="${ingredient.name}">
-          <span>${ingredient.name}</span>
-        `;
-        ingredientsContainer.appendChild(ingredientItem);
-      });
-      
-      // Populate recipe
-      const recipeContainer = document.getElementById('modalRecipe');
-      recipeContainer.innerHTML = '';
-      food.recipe.forEach((step, index) => {
-        const stepElement = document.createElement('p');
-        stepElement.innerHTML = `<span class="step-number">${index + 1}</span> ${step}`;
-        recipeContainer.appendChild(stepElement);
-      });
-      
-      // Initialize reviews for this food
-      initReviews(foodId);
-      
-      // Show modal
-      document.getElementById('foodModal').style.display = 'block';
+// Helper function to count pending reviews
+function getPendingReviewsCount() {
+  const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+  return pendingReviews.length;
+}
+
+// Initialize reviews for each food item
+Object.keys(foodData).forEach(foodId => {
+  reviews[foodId] = [];
+});
+
+// Flip card function
+function flipCard(card) {
+  card.classList.toggle('flipped');
+}
+
+// Show food detail modal
+function showFoodDetail(foodId) {
+  const food = foodData[foodId];
+  if (!food) {
+    console.error("Invalid foodId:", foodId);
+    return;
+  }
+  
+  document.getElementById('modalFoodName').textContent = food.name;
+  document.getElementById('modalFoodFlag').src = food.flag;
+  document.getElementById('modalFoodCountry').textContent = food.country;
+  document.getElementById('modalFoodImage').src = food.image;
+  document.getElementById('modalDescription').textContent = food.description;
+  
+  // Populate ingredients
+  const ingredientsContainer = document.getElementById('modalIngredients');
+  ingredientsContainer.innerHTML = '';
+  food.ingredients.forEach(ingredient => {
+    const ingredientItem = document.createElement('div');
+    ingredientItem.className = 'icon-item';
+    ingredientItem.innerHTML = `
+      <img src="${ingredient.icon}" alt="${ingredient.name}">
+      <span>${ingredient.name}</span>
+    `;
+    ingredientsContainer.appendChild(ingredientItem);
+  });
+  
+  // Populate recipe
+  const recipeContainer = document.getElementById('modalRecipe');
+  recipeContainer.innerHTML = '';
+  food.recipe.forEach((step, index) => {
+    const stepElement = document.createElement('p');
+    stepElement.innerHTML = `<span class="step-number">${index + 1}</span> ${step}`;
+    recipeContainer.appendChild(stepElement);
+  });
+  
+  // Initialize reviews for this food
+  initReviews(foodId);
+  
+  // Show modal
+  document.getElementById('foodModal').style.display = 'block';
+}
+
+// Close modal and flip back all cards
+function closeModal() {
+  document.getElementById('foodModal').style.display = 'none';
+  
+  // Flip back all cards to front
+  const allCards = document.querySelectorAll('.food-card');
+  allCards.forEach(card => {
+    card.classList.remove('flipped');
+  });
+}
+
+// Close modal if clicked outside
+window.onclick = function(event) {
+  const modal = document.getElementById('foodModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Search function
+function searchFood() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const cards = document.querySelectorAll('.food-card-front h5');
+  for (let i = 0; i < cards.length; i++) {
+    const cardTitle = cards[i].textContent.toLowerCase();
+    const cardContainer = cards[i].closest('.food-card-container');
+    cardContainer.style.display = cardTitle.includes(input) ? "block" : "none";
+  }
+}
+
+// API function
+$("#getFoodBtn").click(function() {
+  $.get("https://www.themealdb.com/api/json/v1/1/random.php", function(data) {
+    $("#foodImage").attr("src", data.meals[0].strMealThumb);
+  });
+});
+
+// Welcome message
+if(!localStorage.getItem("visitedThailand")) {
+  alert("Welcome to Thailand Street Food Page!");
+  localStorage.setItem("visitedThailand", "true");
+}
+
+if(!sessionStorage.getItem("sessionVisit")) {
+  console.log("New session started");
+  sessionStorage.setItem("sessionVisit", "true");
+}
+
+document.cookie = "username=FoodLover; path=/;";
+
+// Initialize reviews for a specific food
+function initReviews(foodId) {
+  const avgRatingEl = document.getElementById("average-rating");
+  const ctx = document.getElementById("ratingChart");
+  const reviewsList = document.getElementById("reviewsList");
+  const reviewForm = document.getElementById("reviewForm");
+  
+  // Destroy previous chart if it exists
+  if (ratingChart) {
+    ratingChart.destroy();
+  }
+  
+  // Create new chart
+  ratingChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
+      datasets: [{
+        label: "Number of Reviews",
+        data: getRatingDistribution(foodId),
+        backgroundColor: ["#f44336","#ffc107","#cddc39","#8bc34a","#4caf50"],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      scales: { x: { beginAtZero: true, precision: 0, ticks: { stepSize: 1 } } },
+      plugins: { legend: { display: false } }
     }
-
-    // Close modal and flip back all cards
-    function closeModal() {
-      document.getElementById('foodModal').style.display = 'none';
-      
-      // Flip back all cards to front
-      const allCards = document.querySelectorAll('.food-card');
-      allCards.forEach(card => {
-        card.classList.remove('flipped');
-      });
+  });
+  
+  // Update average rating
+  updateAverageRating(foodId, avgRatingEl);
+  
+  // Render reviews
+  renderReviews(foodId, reviewsList);
+  
+  // Set up form submission
+  reviewForm.onsubmit = function(e) {
+    e.preventDefault();
+    
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
+    const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+    const comment = document.getElementById("comment").value.trim();
+    const photoInput = document.getElementById("photoUpload");
+    const photo = photoInput.files[0] || null;
+    
+    if (!rating || !comment) {
+      alert("Please complete all fields!");
+      return;
     }
-
-    // Close modal if clicked outside
-    window.onclick = function(event) {
-      const modal = document.getElementById('foodModal');
-      if (event.target === modal) {
-        closeModal();
-      }
-    };
-
-    // Search function
-    function searchFood() {
-      const input = document.getElementById('searchBar').value.toLowerCase();
-      const cards = document.querySelectorAll('.food-card-front h5');
-      for (let i = 0; i < cards.length; i++) {
-        const cardTitle = cards[i].textContent.toLowerCase();
-        const cardContainer = cards[i].closest('.food-card-container');
-        cardContainer.style.display = cardTitle.includes(input) ? "block" : "none";
-      }
+    
+    // If user is not logged in, show login prompt
+    if (!loggedInUser) {
+      // Store the review data temporarily
+      const reviewData = {
+        foodId: foodId,
+        rating: rating,
+        comment: comment,
+        photo: photo ? URL.createObjectURL(photo) : null,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Store the review data
+      let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+      pendingReviews.push(reviewData);
+      localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+      
+      // Show login prompt
+      showLoginPrompt();
+      return;
     }
-
-    // API function
-    $("#getFoodBtn").click(function() {
-      $.get("https://www.themealdb.com/api/json/v1/1/random.php", function(data) {
-        $("#foodImage").attr("src", data.meals[0].strMealThumb);
-      });
-    });
-
-    document.cookie = "username=FoodLover; path=/;";
-
-    // Initialize reviews for a specific food
-    function initReviews(foodId) {
-      const avgRatingEl = document.getElementById("average-rating");
-      const ctx = document.getElementById("ratingChart");
-      const reviewsList = document.getElementById("reviewsList");
-      const reviewForm = document.getElementById("reviewForm");
-      
-      // Destroy previous chart if it exists
-      if (ratingChart) {
-        ratingChart.destroy();
-      }
-      
-      // Create new chart
-      ratingChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
-          datasets: [{
-            label: "Number of Reviews",
-            data: getRatingDistribution(foodId),
-            backgroundColor: ["#f44336","#ffc107","#cddc39","#8bc34a","#4caf50"],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: { x: { beginAtZero: true, precision: 0, ticks: { stepSize: 1 } } },
-          plugins: { legend: { display: false } }
-        }
-      });
-      
-      // Update average rating
-      updateAverageRating(foodId, avgRatingEl);
-      
-      // Render reviews
-      renderReviews(foodId, reviewsList);
-      
-      // Set up form submission
-      reviewForm.onsubmit = function(e) {
-        e.preventDefault();
-        const username = window.loggedInUser || "Guest";
-        const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
-        const comment = document.getElementById("comment").value.trim();
-        const photo = document.getElementById("photoUpload").files[0] || null;
-
-        if (!rating || !comment) {
-          alert("Please complete all fields!");
-          return;
-        }
-
-        reviews[foodId].push({ username, rating, comment, photo });
-
+    
+    // If user is logged in, process the review normally
+    const username = loggedInUser.username;
+    
+    // Convert photo to data URL if exists
+    let photoDataUrl = null;
+    if (photo) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        photoDataUrl = e.target.result;
+        reviews[foodId].push({ username, rating, comment, photo: photoDataUrl });
+        
         ratingChart.data.datasets[0].data = getRatingDistribution(foodId);
         ratingChart.update();
         updateAverageRating(foodId, avgRatingEl);
         renderReviews(foodId, reviewsList);
-        this.reset();
+        reviewForm.reset();
       };
+      reader.readAsDataURL(photo);
+    } else {
+      reviews[foodId].push({ username, rating, comment, photo: null });
       
-      // Star hover effect
-      const stars = document.querySelectorAll('input[name="rating"]');
-      stars.forEach(star => {
-        star.addEventListener('mouseover', () => { 
-          avgRatingEl.textContent = `${star.value} ⭐`; 
-        });
-        star.addEventListener('mouseout', () => { 
-          updateAverageRating(foodId, avgRatingEl); 
-        });
-      });
+      ratingChart.data.datasets[0].data = getRatingDistribution(foodId);
+      ratingChart.update();
+      updateAverageRating(foodId, avgRatingEl);
+      renderReviews(foodId, reviewsList);
+      reviewForm.reset();
+    }
+  };
+  
+  // Star hover effect
+  const stars = document.querySelectorAll('input[name="rating"]');
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => { 
+      avgRatingEl.textContent = `${star.value} â­`; 
+    });
+    star.addEventListener('mouseout', () => { 
+      updateAverageRating(foodId, avgRatingEl); 
+    });
+  });
+}
+
+// Get rating distribution for a food
+function getRatingDistribution(foodId) {
+  const distribution = [0, 0, 0, 0, 0];
+  reviews[foodId].forEach(r => {
+    if (r.rating >= 1 && r.rating <= 5) distribution[r.rating - 1]++;
+  });
+  return distribution;
+}
+
+// Update average rating display
+function updateAverageRating(foodId, avgRatingEl) {
+  if (reviews[foodId].length === 0) {
+    avgRatingEl.textContent = "0.0";
+    return;
+  }
+  const total = reviews[foodId].reduce((sum, r) => sum + r.rating, 0);
+  const avg = (total / reviews[foodId].length).toFixed(1);
+  avgRatingEl.textContent = `${avg}`;
+}
+
+// Translate comment to English using Google Translate API
+async function translateTextToEnglish(text, targetElement) {
+  targetElement.textContent = "Translating...";
+  try {
+    const res = await fetch(
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`
+    );
+    const data = await res.json();
+    targetElement.textContent = data[0][0][0] || "No translation available";
+  } catch (err) {
+    targetElement.textContent = "Translation error";
+    console.error("Translation failed:", err);
+  }
+}
+
+// Render reviews for a food
+function renderReviews(foodId, reviewsList) {
+  reviewsList.innerHTML = "";
+  reviews[foodId].forEach(review => {
+    const div = document.createElement("div");
+    div.className = "review";
+
+    // Comment container
+    div.innerHTML = `
+      <strong>${review.username}</strong> - ${review.rating} â­
+      <p class="comment">${review.comment}</p>
+      <button class="translateBtn">Translate to English</button>
+    `;
+
+    // Add photo if available
+    if (review.photo) {
+      const img = document.createElement("img");
+      img.src = typeof review.photo === "string" ? review.photo : URL.createObjectURL(review.photo);
+      img.style.maxWidth = "100px";
+      img.style.display = "block";
+      div.appendChild(img);
     }
 
-    // Get rating distribution for a food
-    function getRatingDistribution(foodId) {
-      const distribution = [0, 0, 0, 0, 0];
-      reviews[foodId].forEach(r => {
-        if (r.rating >= 1 && r.rating <= 5) distribution[r.rating - 1]++;
-      });
-      return distribution;
-    }
+    // Translate button
+    const translateBtn = div.querySelector(".translateBtn");
+    const commentEl = div.querySelector(".comment");
+    translateBtn.addEventListener("click", () => translateTextToEnglish(review.comment, commentEl));
 
-    // Update average rating display
-    function updateAverageRating(foodId, avgRatingEl) {
-      if (reviews[foodId].length === 0) {
-        avgRatingEl.textContent = "0.0";
-        return;
-      }
-      const total = reviews[foodId].reduce((sum, r) => sum + r.rating, 0);
-      const avg = (total / reviews[foodId].length).toFixed(1);
-      avgRatingEl.textContent = `${avg}`;
-    }
-
-    // Translate comment to English using Google Translate API
-    async function translateTextToEnglish(text, targetElement) {
-      targetElement.textContent = "Translating...";
-      try {
-        const res = await fetch(
-          `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`
-        );
-        const data = await res.json();
-        targetElement.textContent = data[0][0][0] || "No translation available";
-      } catch (err) {
-        targetElement.textContent = "Translation error";
-        console.error("Translation failed:", err);
-      }
-    }
-
-    // Render reviews for a food
-    function renderReviews(foodId, reviewsList) {
-      reviewsList.innerHTML = "";
-      reviews[foodId].forEach(review => {
-        const div = document.createElement("div");
-        div.className = "review";
-
-        // Comment container
-        div.innerHTML = `
-          <strong>${review.username}</strong> - ${review.rating} ⭐
-          <p class="comment">${review.comment}</p>
-          <button class="translateBtn">Translate to English</button>
-        `;
-
-        // Add photo if available
-        if (review.photo) {
-          const img = document.createElement("img");
-          img.src = URL.createObjectURL(review.photo);
-          img.style.maxWidth = "100px";
-          img.style.display = "block";
-          div.appendChild(img);
-        }
-
-        // Translate button
-        const translateBtn = div.querySelector(".translateBtn");
-        const commentEl = div.querySelector(".comment");
-        translateBtn.addEventListener("click", () => translateTextToEnglish(review.comment, commentEl));
-
-        reviewsList.appendChild(div);
-      });
-    }
+    reviewsList.appendChild(div);
+  });
+}
