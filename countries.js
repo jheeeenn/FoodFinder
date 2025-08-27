@@ -1,11 +1,11 @@
-Food data
+// Food data
     const foodData = {
       /* US Food Data */
       'corndog': {
         name: 'Corn Dog',
         country: 'United States',
         flag: 'https://flagcdn.com/w320/us.png',
-        image: 'multimedia_content/images/corndog.jpg ',
+        image: 'multimedia_content/images/corndog.jpg',
         category: 'Snack',
         description: "The corn dog is a popular American snack that originated in the early 20th century. It consists of a hot dog sausage coated in a thick layer of cornmeal batter, which is then deep-fried to a golden brown. The exact origins of the corn dog are debated, but it is widely believed to have been invented at state fairs and carnivals in the United States during the 1920s and 1930s. The corn dog quickly gained popularity due to its convenient handheld format and delicious combination of savory sausage and crispy cornmeal coating. Today, corn dogs are a beloved treat enjoyed at fairs, sporting events, and fast-food establishments across the country.",
         ingredients: [
@@ -871,365 +871,233 @@ Food data
   
     };
 
-   // Review system
-let reviews = {};
-let ratingChart = null;
-// Show login prompt
-function showLoginPrompt() {
-  // Create modal overlay
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-  `;
-  
-  // Create modal content
-  const modal = document.createElement('div');
-  modal.style.cssText = `
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-  `;
-  
-  modal.innerHTML = `
-    <h3 style="margin-top: 0; color: #333;">Login Required</h3>
-    <p style="margin-bottom: 20px; color: #666;">You need to be logged in to submit feedback.</p>
-    <div style="display: flex; justify-content: center; gap: 15px;">
-      <button id="goToLoginBtn" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Go to Login Page
-      </button>
-      <button id="cancelLoginBtn" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        Cancel
-      </button>
-    </div>
-    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
-      <p style="font-size: 14px; color: #888;">
-        <strong>Storage Information:</strong> Your feedback is stored locally in your browser's storage. 
-        Currently storing ${getPendingReviewsCount()} pending review(s).
-      </p>
-    </div>
-  `;
-  
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
-  
-  // Add event listeners
-  document.getElementById('goToLoginBtn').addEventListener('click', function() {
-    // Store the current page URL to return after login
-    localStorage.setItem('redirectAfterLogin', window.location.href);
-    window.location.href = 'login.html';
-  });
-  
-  document.getElementById('cancelLoginBtn').addEventListener('click', function() {
-    document.body.removeChild(overlay);
-  });
-  
-  // Close modal when clicking outside
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) {
-      document.body.removeChild(overlay);
+    // Review system
+    let reviews = {};
+    let ratingChart = null;
+
+    // Initialize reviews for each food item
+    Object.keys(foodData).forEach(foodId => {
+      reviews[foodId] = [];
+    });
+
+    // Flip card function
+    function flipCard(card) {
+      card.classList.toggle('flipped');
     }
-  });
-}
 
-// Helper function to count pending reviews
-function getPendingReviewsCount() {
-  const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
-  return pendingReviews.length;
-}
-
-// Initialize reviews for each food item
-Object.keys(foodData).forEach(foodId => {
-  reviews[foodId] = [];
-});
-
-// Flip card function
-function flipCard(card) {
-  card.classList.toggle('flipped');
-}
-
-// Show food detail modal
-function showFoodDetail(foodId) {
-  const food = foodData[foodId];
-  if (!food) {
-    console.error("Invalid foodId:", foodId);
-    return;
-  }
-  
-  document.getElementById('modalFoodName').textContent = food.name;
-  document.getElementById('modalFoodFlag').src = food.flag;
-  document.getElementById('modalFoodCountry').textContent = food.country;
-  document.getElementById('modalFoodImage').src = food.image;
-  document.getElementById('modalDescription').textContent = food.description;
-  
-  // Populate ingredients
-  const ingredientsContainer = document.getElementById('modalIngredients');
-  ingredientsContainer.innerHTML = '';
-  food.ingredients.forEach(ingredient => {
-    const ingredientItem = document.createElement('div');
-    ingredientItem.className = 'icon-item';
-    ingredientItem.innerHTML = `
-      <img src="${ingredient.icon}" alt="${ingredient.name}">
-      <span>${ingredient.name}</span>
-    `;
-    ingredientsContainer.appendChild(ingredientItem);
-  });
-  
-  // Populate recipe
-  const recipeContainer = document.getElementById('modalRecipe');
-  recipeContainer.innerHTML = '';
-  food.recipe.forEach((step, index) => {
-    const stepElement = document.createElement('p');
-    stepElement.innerHTML = `<span class="step-number">${index + 1}</span> ${step}`;
-    recipeContainer.appendChild(stepElement);
-  });
-  
-  // Initialize reviews for this food
-  initReviews(foodId);
-  
-  // Show modal
-  document.getElementById('foodModal').style.display = 'block';
-}
-
-// Close modal and flip back all cards
-function closeModal() {
-  document.getElementById('foodModal').style.display = 'none';
-  
-  // Flip back all cards to front
-  const allCards = document.querySelectorAll('.food-card');
-  allCards.forEach(card => {
-    card.classList.remove('flipped');
-  });
-}
-
-// Close modal if clicked outside
-window.onclick = function(event) {
-  const modal = document.getElementById('foodModal');
-  if (event.target === modal) {
-    closeModal();
-  }
-};
-
-// Search function
-function searchFood() {
-  const input = document.getElementById('searchBar').value.toLowerCase();
-  const cards = document.querySelectorAll('.food-card-front h5');
-  for (let i = 0; i < cards.length; i++) {
-    const cardTitle = cards[i].textContent.toLowerCase();
-    const cardContainer = cards[i].closest('.food-card-container');
-    cardContainer.style.display = cardTitle.includes(input) ? "block" : "none";
-  }
-}
-
-// API function
-$("#getFoodBtn").click(function() {
-  $.get("https://www.themealdb.com/api/json/v1/1/random.php", function(data) {
-    $("#foodImage").attr("src", data.meals[0].strMealThumb);
-  });
-});
-
-// Welcome message
-if(!localStorage.getItem("visitedThailand")) {
-  alert("Welcome to Thailand Street Food Page!");
-  localStorage.setItem("visitedThailand", "true");
-}
-
-if(!sessionStorage.getItem("sessionVisit")) {
-  console.log("New session started");
-  sessionStorage.setItem("sessionVisit", "true");
-}
-
-document.cookie = "username=FoodLover; path=/;";
-
-// Initialize reviews for a specific food
-function initReviews(foodId) {
-  const avgRatingEl = document.getElementById("average-rating");
-  const ctx = document.getElementById("ratingChart");
-  const reviewsList = document.getElementById("reviewsList");
-  const reviewForm = document.getElementById("reviewForm");
-  
-  // Destroy previous chart if it exists
-  if (ratingChart) {
-    ratingChart.destroy();
-  }
-  
-  // Create new chart
-  ratingChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
-      datasets: [{
-        label: "Number of Reviews",
-        data: getRatingDistribution(foodId),
-        backgroundColor: ["#f44336","#ffc107","#cddc39","#8bc34a","#4caf50"],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      scales: { x: { beginAtZero: true, precision: 0, ticks: { stepSize: 1 } } },
-      plugins: { legend: { display: false } }
-    }
-  });
-  
-  // Update average rating
-  updateAverageRating(foodId, avgRatingEl);
-  
-  // Render reviews
-  renderReviews(foodId, reviewsList);
-  
-  // Set up form submission
-  reviewForm.onsubmit = function(e) {
-    e.preventDefault();
-    
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') || 'null');
-    const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
-    const comment = document.getElementById("comment").value.trim();
-    const photoInput = document.getElementById("photoUpload");
-    const photo = photoInput.files[0] || null;
-    
-    if (!rating || !comment) {
-      alert("Please complete all fields!");
-      return;
-    }
-    
-    // If user is not logged in, show login prompt
-    if (!loggedInUser) {
-      // Store the review data temporarily
-      const reviewData = {
-        foodId: foodId,
-        rating: rating,
-        comment: comment,
-        photo: photo ? URL.createObjectURL(photo) : null,
-        timestamp: new Date().toISOString()
-      };
+    // Show food detail modal
+    function showFoodDetail(foodId) {
+      const food = foodData[foodId];
+      if (!food) return;
       
-      // Store the review data
-      let pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
-      pendingReviews.push(reviewData);
-      localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+      document.getElementById('modalFoodName').textContent = food.name;
+      document.getElementById('modalFoodFlag').src = food.flag;
+      document.getElementById('modalFoodCountry').textContent = food.country;
+      document.getElementById('modalFoodImage').src = food.image;
+      document.getElementById('modalDescription').textContent = food.description;
       
-      // Show login prompt
-      showLoginPrompt();
-      return;
+      // Populate ingredients
+      const ingredientsContainer = document.getElementById('modalIngredients');
+      ingredientsContainer.innerHTML = '';
+      food.ingredients.forEach(ingredient => {
+        const ingredientItem = document.createElement('div');
+        ingredientItem.className = 'icon-item';
+        ingredientItem.innerHTML = `
+          <img src="${ingredient.icon}" alt="${ingredient.name}">
+          <span>${ingredient.name}</span>
+        `;
+        ingredientsContainer.appendChild(ingredientItem);
+      });
+      
+      // Populate recipe
+      const recipeContainer = document.getElementById('modalRecipe');
+      recipeContainer.innerHTML = '';
+      food.recipe.forEach((step, index) => {
+        const stepElement = document.createElement('p');
+        stepElement.innerHTML = `<span class="step-number">${index + 1}</span> ${step}`;
+        recipeContainer.appendChild(stepElement);
+      });
+      
+      // Initialize reviews for this food
+      initReviews(foodId);
+      
+      // Show modal
+      document.getElementById('foodModal').style.display = 'block';
     }
-    
-    // If user is logged in, process the review normally
-    const username = loggedInUser.username;
-    
-    // Convert photo to data URL if exists
-    let photoDataUrl = null;
-    if (photo) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        photoDataUrl = e.target.result;
-        reviews[foodId].push({ username, rating, comment, photo: photoDataUrl });
-        
+
+    // Close modal and flip back all cards
+    function closeModal() {
+      document.getElementById('foodModal').style.display = 'none';
+      
+      // Flip back all cards to front
+      const allCards = document.querySelectorAll('.food-card');
+      allCards.forEach(card => {
+        card.classList.remove('flipped');
+      });
+    }
+
+    // Close modal if clicked outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('foodModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    // Search function
+    function searchFood() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.querySelectorAll('.food-card-front h5');
+      for (let i = 0; i < cards.length; i++) {
+        const cardTitle = cards[i].textContent.toLowerCase();
+        const cardContainer = cards[i].closest('.food-card-container');
+        cardContainer.style.display = cardTitle.includes(input) ? "block" : "none";
+      }
+    }
+
+    // API function
+    $("#getFoodBtn").click(function() {
+      $.get("https://www.themealdb.com/api/json/v1/1/random.php", function(data) {
+        $("#foodImage").attr("src", data.meals[0].strMealThumb);
+      });
+    });
+
+    document.cookie = "username=FoodLover; path=/;";
+
+    // Initialize reviews for a specific food
+    function initReviews(foodId) {
+      const avgRatingEl = document.getElementById("average-rating");
+      const ctx = document.getElementById("ratingChart");
+      const reviewsList = document.getElementById("reviewsList");
+      const reviewForm = document.getElementById("reviewForm");
+      
+      // Destroy previous chart if it exists
+      if (ratingChart) {
+        ratingChart.destroy();
+      }
+      
+      // Create new chart
+      ratingChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
+          datasets: [{
+            label: "Number of Reviews",
+            data: getRatingDistribution(foodId),
+            backgroundColor: ["#f44336","#ffc107","#cddc39","#8bc34a","#4caf50"],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: { x: { beginAtZero: true, precision: 0, ticks: { stepSize: 1 } } },
+          plugins: { legend: { display: false } }
+        }
+      });
+      
+      // Update average rating
+      updateAverageRating(foodId, avgRatingEl);
+      
+      // Render reviews
+      renderReviews(foodId, reviewsList);
+      
+      // Set up form submission
+      reviewForm.onsubmit = function(e) {
+        e.preventDefault();
+        const username = window.loggedInUser || "Guest";
+        const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value);
+        const comment = document.getElementById("comment").value.trim();
+        const photo = document.getElementById("photoUpload").files[0] || null;
+
+        if (!rating || !comment) {
+          alert("Please complete all fields!");
+          return;
+        }
+
+        reviews[foodId].push({ username, rating, comment, photo });
+
         ratingChart.data.datasets[0].data = getRatingDistribution(foodId);
         ratingChart.update();
         updateAverageRating(foodId, avgRatingEl);
         renderReviews(foodId, reviewsList);
-        reviewForm.reset();
+        this.reset();
       };
-      reader.readAsDataURL(photo);
-    } else {
-      reviews[foodId].push({ username, rating, comment, photo: null });
       
-      ratingChart.data.datasets[0].data = getRatingDistribution(foodId);
-      ratingChart.update();
-      updateAverageRating(foodId, avgRatingEl);
-      renderReviews(foodId, reviewsList);
-      reviewForm.reset();
-    }
-  };
-  
-  // Star hover effect
-  const stars = document.querySelectorAll('input[name="rating"]');
-  stars.forEach(star => {
-    star.addEventListener('mouseover', () => { 
-      avgRatingEl.textContent = `${star.value} â­`; 
-    });
-    star.addEventListener('mouseout', () => { 
-      updateAverageRating(foodId, avgRatingEl); 
-    });
-  });
-}
-
-// Get rating distribution for a food
-function getRatingDistribution(foodId) {
-  const distribution = [0, 0, 0, 0, 0];
-  reviews[foodId].forEach(r => {
-    if (r.rating >= 1 && r.rating <= 5) distribution[r.rating - 1]++;
-  });
-  return distribution;
-}
-
-// Update average rating display
-function updateAverageRating(foodId, avgRatingEl) {
-  if (reviews[foodId].length === 0) {
-    avgRatingEl.textContent = "0.0";
-    return;
-  }
-  const total = reviews[foodId].reduce((sum, r) => sum + r.rating, 0);
-  const avg = (total / reviews[foodId].length).toFixed(1);
-  avgRatingEl.textContent = `${avg}`;
-}
-
-// Translate comment to English using Google Translate API
-async function translateTextToEnglish(text, targetElement) {
-  targetElement.textContent = "Translating...";
-  try {
-    const res = await fetch(
-      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`
-    );
-    const data = await res.json();
-    targetElement.textContent = data[0][0][0] || "No translation available";
-  } catch (err) {
-    targetElement.textContent = "Translation error";
-    console.error("Translation failed:", err);
-  }
-}
-
-// Render reviews for a food
-function renderReviews(foodId, reviewsList) {
-  reviewsList.innerHTML = "";
-  reviews[foodId].forEach(review => {
-    const div = document.createElement("div");
-    div.className = "review";
-
-    // Comment container
-    div.innerHTML = `
-      <strong>${review.username}</strong> - ${review.rating} â­
-      <p class="comment">${review.comment}</p>
-      <button class="translateBtn">Translate to English</button>
-    `;
-
-    // Add photo if available
-    if (review.photo) {
-      const img = document.createElement("img");
-      img.src = typeof review.photo === "string" ? review.photo : URL.createObjectURL(review.photo);
-      img.style.maxWidth = "100px";
-      img.style.display = "block";
-      div.appendChild(img);
+      // Star hover effect
+      const stars = document.querySelectorAll('input[name="rating"]');
+      stars.forEach(star => {
+        star.addEventListener('mouseover', () => { 
+          avgRatingEl.textContent = `${star.value} â­`; 
+        });
+        star.addEventListener('mouseout', () => { 
+          updateAverageRating(foodId, avgRatingEl); 
+        });
+      });
     }
 
-    // Translate button
-    const translateBtn = div.querySelector(".translateBtn");
-    const commentEl = div.querySelector(".comment");
-    translateBtn.addEventListener("click", () => translateTextToEnglish(review.comment, commentEl));
+    // Get rating distribution for a food
+    function getRatingDistribution(foodId) {
+      const distribution = [0, 0, 0, 0, 0];
+      reviews[foodId].forEach(r => {
+        if (r.rating >= 1 && r.rating <= 5) distribution[r.rating - 1]++;
+      });
+      return distribution;
+    }
 
-    reviewsList.appendChild(div);
-  });
+    // Update average rating display
+    function updateAverageRating(foodId, avgRatingEl) {
+      if (reviews[foodId].length === 0) {
+        avgRatingEl.textContent = "0.0";
+        return;
+      }
+      const total = reviews[foodId].reduce((sum, r) => sum + r.rating, 0);
+      const avg = (total / reviews[foodId].length).toFixed(1);
+      avgRatingEl.textContent = `${avg}`;
+    }
+
+    // Translate comment to English using Google Translate API
+    async function translateTextToEnglish(text, targetElement) {
+      targetElement.textContent = "Translating...";
+      try {
+        const res = await fetch(
+          `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`
+        );
+        const data = await res.json();
+        targetElement.textContent = data[0][0][0] || "No translation available";
+      } catch (err) {
+        targetElement.textContent = "Translation error";
+        console.error("Translation failed:", err);
+      }
+    }
+
+    // Render reviews for a food
+    function renderReviews(foodId, reviewsList) {
+      reviewsList.innerHTML = "";
+      reviews[foodId].forEach(review => {
+        const div = document.createElement("div");
+        div.className = "review";
+
+        // Comment container
+        div.innerHTML = `
+          <strong>${review.username}</strong> - ${review.rating} â­
+          <p class="comment">${review.comment}</p>
+          <button class="translateBtn">Translate to English</button>
+        `;
+
+        // Add photo if available
+        if (review.photo) {
+          const img = document.createElement("img");
+          img.src = URL.createObjectURL(review.photo);
+          img.style.maxWidth = "100px";
+          img.style.display = "block";
+          div.appendChild(img);
+        }
+
+        // Translate button
+        const translateBtn = div.querySelector(".translateBtn");
+        const commentEl = div.querySelector(".comment");
+        translateBtn.addEventListener("click", () => translateTextToEnglish(review.comment, commentEl));
+
+        reviewsList.appendChild(div);
+      });
 }
