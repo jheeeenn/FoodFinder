@@ -156,8 +156,9 @@
     }
 
     // ===== Google Login =====
+    
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    document.getElementById("googleLoginBtn").addEventListener("click", () => {
+    document.querySelector('.social-btn.google').onclick = () => {
       auth.signInWithPopup(googleProvider)
         .then(result => {
           const user = result.user;
