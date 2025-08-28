@@ -48,14 +48,7 @@
   margin: 90px auto 0 auto;
 }
 
-.logo  {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 42px;
-    margin-right: auto;
-    padding-left: 20px;
-    text-decoration: none;
-}
+
 
 /* Headline styling */
 #About h1 {
@@ -99,7 +92,6 @@
   gap: 15px;
 }
 
-
 /* Each team member box is clickable */
 .team-member {
   display: inline-flex;
@@ -140,7 +132,6 @@
   text-decoration: underline;
 }
 
-
 footer {
     background: #33333396;
     color: white;
@@ -148,7 +139,13 @@ footer {
     padding: 1.5rem;
     margin-top: 3rem;
 }
-
+.logo {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 42px;
+    margin-right: auto;
+    padding-left: 20px;
+}
 /* Mobile view adjustments */
 @media (max-width: 600px) {
   #About {
@@ -201,5 +198,4 @@ footer {
   .nav-bar ul li {
     margin: 5px 10px;
   }
-
 }

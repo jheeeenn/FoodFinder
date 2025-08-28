@@ -1032,14 +1032,14 @@ function getPendingReviewsCount() {
         cardContainer.style.display = cardTitle.includes(input) ? "block" : "none";
       }
     }
-
+    /*
     // API function
     $("#getFoodBtn").click(function() {
       $.get("https://www.themealdb.com/api/json/v1/1/random.php", function(data) {
         $("#foodImage").attr("src", data.meals[0].strMealThumb);
       });
     });
-
+    */
 
     // Initialize reviews for a specific food
     function initReviews(foodId) {
